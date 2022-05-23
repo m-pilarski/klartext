@@ -1,0 +1,13 @@
+Package: klartext
+Type: Package
+Title: Text Cleaning Tools
+Version: 0.1.0
+Author: Moritz Pilarski
+Maintainer: Moritz Pilarski <yourself@somewhere.net>
+Description: Tools to clean and process text. 
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.5.0)
+Imports: stringi
+RoxygenNote: 7.2.0
+  
