@@ -38,3 +38,6 @@ str_convert_emoji <- function(
   ))
 
 }
+
+
+globalVariables(c("emoji", "name"))
