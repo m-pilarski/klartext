@@ -2,7 +2,10 @@
 
 export("%>%")
 export("%s+%")
+export(glue)
 export(str_blur_numbers)
+export(str_convert_emoji)
 export(str_unify_char_latin)
+importFrom(glue,glue)
 importFrom(magrittr,"%>%")
 importFrom(stringi,"%s+%")

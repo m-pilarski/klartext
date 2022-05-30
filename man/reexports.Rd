@@ -5,6 +5,7 @@
 \alias{reexports}
 \alias{\%>\%}
 \alias{\%s+\%}
+\alias{glue}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -12,6 +13,8 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
+  \item{glue}{\code{\link[glue]{glue}}}
+
   \item{magrittr}{\code{\link[magrittr:pipe]{\%>\%}}}
 
   \item{stringi}{\code{\link[stringi:operator_add]{\%s+\%}}}

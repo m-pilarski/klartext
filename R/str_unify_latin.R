@@ -43,7 +43,8 @@ get_table_char_unicode <- function(){
       delim=";", trim_ws=TRUE,
       col_names=c("code_hex", "description"),
       col_types=readr::cols_only(
-        code_hex=readr::col_character(), description=readr::col_character()
+        code_hex=readr::col_character(),
+        description=readr::col_character()
       )
     )
 
@@ -91,3 +92,7 @@ get_table_char_latin <- function(){
 #' @keywords datasets
 #' @rdname table_char_latin
 "table_char_latin"
+
+
+
+globalVariables(c("code_hex", "description", "pattern", "replacement"))
