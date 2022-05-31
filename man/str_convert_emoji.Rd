@@ -14,6 +14,14 @@ str_convert_emoji(
 }
 \arguments{
 \item{.str}{...}
+
+\item{.table_emoji}{...}
+
+\item{.col_emoji}{...}
+
+\item{.col_description}{...}
+
+\item{.trans_description}{...}
 }
 \value{
 \code{str_convert_emoji} - returns a ...
