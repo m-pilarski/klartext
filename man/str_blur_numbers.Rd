@@ -6,8 +6,8 @@
 \usage{
 str_blur_numbers(
   .str,
-  .rep_cardinal = "<NUM>",
-  .rep_ordinal = "<ORD>",
+  .rep_cardinal = "<NUM_CARDI>",
+  .rep_ordinal = "<NUM_ORDI>",
   .lang = "en",
   .excl_substr = TRUE,
   .excl_at_hash = TRUE,
@@ -39,7 +39,8 @@ str_blur_numbers(
 ## str_blur_numbers EXAMPLE:
 
 str_blur_numbers(c(
-  "The 2020 United States presidential election was the 59th quadrennial ",
-  "presidential election, held on Tuesday, November 3, 2020"
+  "The 2020 United States presidential election",
+  "was the 59th quadrennial presidential election",
+  "held on Tuesday, November 3, 2020"
 ))
 }

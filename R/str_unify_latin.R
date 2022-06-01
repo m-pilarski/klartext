@@ -36,12 +36,12 @@ str_unify_char_latin <- function(
 get_table_char_unicode <- function(){
 
   "https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt" %>%
-    readr::read_lines() %>%
+    readr::read_lines(progress=FALSE) %>%
     stringi::stri_subset_regex("^[:xdigit:]{4};[^;]+") %>%
     paste(collapse="\n") %>%
     readr::read_delim(
       delim=";", trim_ws=TRUE,
-      col_names=c("code_hex", "description"),
+      col_names=c("code_hex", "description", "general_category"),
       col_types=readr::cols_only(
         code_hex=readr::col_character(),
         description=readr::col_character()
@@ -58,29 +58,40 @@ get_table_char_unicode <- function(){
 #' @rdname get_table_char_latin
 get_table_char_latin <- function(){
 
+  .latin_letter_regex <-
+    "(?i)^latin ([a-z]+) letter " %s+%
+    "(?:african|dotless|long|open|reversed|sharp )?" %s+%
+    "([a-z])(?: with .+)?$"
+
   get_table_char_unicode() %>%
     dplyr::filter(
-      stringi::stri_detect_regex(description, "(?i)^latin \\w+ letter \\w")
+      stringi::stri_detect_regex(description, .latin_letter_regex)
     ) %>%
     dplyr::mutate(
       pattern = stringi::stri_unescape_unicode(paste0("\\u", code_hex)),
       description = stringi::stri_trans_tolower(description),
       case = stringi::stri_replace_all_regex(
-        description, "^latin (\\w+) letter \\w.*", "$1"
+        description, .latin_letter_regex, "$1"
       ),
       letter = stringi::stri_replace_all_regex(
-        description, "^latin \\w+ letter (\\w).*", "$1"
+        description, .latin_letter_regex, "$2"
       ),
       replacement = dplyr::case_when(
-        case == "capital" ~ stringi::stri_trans_toupper(letter),
+        case == "capital" ~ stringi::stri_trans_totitle(letter),
         case == "small" ~ stringi::stri_trans_tolower(letter),
         TRUE ~ NA_character_
       )
     ) %>%
     tidyr::drop_na(pattern, replacement) %>%
-    dplyr::select(pattern, replacement, description)
+    dplyr::group_by(pattern, replacement) %>%
+    dplyr::summarize(
+      description = paste(description, collapse=" OR "),
+      .groups="drop"
+    )
 
 }
+# table_char_latin <- get_table_char_latin()
+# usethis::use_data(table_char_latin, overwrite=TRUE)
 
 #' Dictionary for replacing latin letters with extensions with their respective base forms
 #'
@@ -92,7 +103,6 @@ get_table_char_latin <- function(){
 #' @keywords datasets
 #' @rdname table_char_latin
 "table_char_latin"
-
 
 
 globalVariables(c("code_hex", "description", "pattern", "replacement"))
