@@ -10,7 +10,7 @@ str_blur_numbers(
   .rep_ordinal = "<NUM_ORDI>",
   .lang = "en",
   .excl_substr = TRUE,
-  .excl_at_hash = TRUE,
+  .excl_hash_at = TRUE,
   .relax_space = TRUE
 )
 }
@@ -25,7 +25,7 @@ str_blur_numbers(
 
 \item{.excl_substr}{...}
 
-\item{.excl_at_hash}{...}
+\item{.excl_hash_at}{...}
 
 \item{.relax_space}{...}
 }

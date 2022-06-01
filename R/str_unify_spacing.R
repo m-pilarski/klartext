@@ -17,13 +17,17 @@ str_unify_spacing <- function(.str){
   .excl_regex_dict <-
     "\\<([A-Z0-9_]+?)\\>|" %s+%
     "(?<![[:alnum:]&])@[[:alnum:]_]+(?=[^[:alnum:]_]|$)|" %s+%
-    "(?<![[:alnum:]&])#[[:alpha:]][[:alnum:]_]*(?=[^[:alnum:]_]|$)"
+    "(?<![[:alnum:]&])#[[:alpha:]][[:alnum:]_]*(?=[^[:alnum:]_]|$)|" %s+%
+    "\\b((http|ftp)s?://|mailto:|www\\.)[^\\s/$.?#][[[:alnum:]]-._~:/?#" %s+%
+    "\\[\\]@!$&'()*+%,;=]+[^\\.]\\b"
 
   .excl_loc <- stringi::stri_locate_all_regex(
     str=.str, pattern=.excl_regex_dict
   )
 
   purrr::map2_chr(.str, .excl_loc, function(..str, ..excl_loc){
+
+    if(all(is.na(..excl_loc))){..excl_loc <- c(start=0, end=0)}
 
     ..excl_loc <- tibble::add_column(
       tibble::as_tibble(..excl_loc), incl = FALSE
