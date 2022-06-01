@@ -49,14 +49,13 @@ str_blur_numbers(c(
   "held on Tuesday, November 3, 2020. #2020"
 ))
 
+example_emoji <- "😀😆😡💀"
 
-str_convert_emoji("😀🌕👁🐦💻")
+str_convert_emoji(example_emoji)
 
-str_convert_emoji("😀🌕👁🐦💻", .col_description=subgroup)
+str_convert_emoji(example_emoji, .col_description=subgroup)
 
-str_convert_emoji("😀🌕👁🐦💻", .col_description=group)
-
-
+str_convert_emoji(example_emoji, .col_description=group)
 
 ```
 

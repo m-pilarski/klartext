@@ -38,13 +38,14 @@ str_blur_numbers(c(
 #> [2] "was the <NUM_ORDI> quadrennial presidential election"     
 #> [3] "held on Tuesday, November <NUM_CARDI>, <NUM_CARDI>. #2020"
 
+example_emoji <- "😀😆😡💀"
 
-str_convert_emoji("😀🌕👁🐦💻")
-#> [1] "<GRINNING_FACE><FULL_MOON><EYE><BIRD><LAPTOP>"
+str_convert_emoji(example_emoji)
+#> [1] "<GRINNING_FACE><GRINNING_SQUINTING_FACE><POUTING_FACE><SKULL>"
 
-str_convert_emoji("😀🌕👁🐦💻", .col_description=subgroup)
-#> [1] "<FACE_SMILING><SKY_WEATHER><BODY_PARTS><ANIMAL_BIRD><COMPUTER>"
+str_convert_emoji(example_emoji, .col_description=subgroup)
+#> [1] "<FACE_SMILING><FACE_SMILING><FACE_NEGATIVE><FACE_NEGATIVE>"
 
-str_convert_emoji("😀🌕👁🐦💻", .col_description=group)
-#> [1] "<SMILEYS_EMOTION><TRAVEL_PLACES><PEOPLE_BODY><ANIMALS_NATURE><OBJECTS>"
+str_convert_emoji(example_emoji, .col_description=group)
+#> [1] "<SMILEYS_EMOTION><SMILEYS_EMOTION><SMILEYS_EMOTION><SMILEYS_EMOTION>"
 ```
