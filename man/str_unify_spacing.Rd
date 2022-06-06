@@ -18,7 +18,9 @@ str_unify_spacing(.str)
 \examples{
 ## str_unify_spacing EXAMPLE:
 
-str_unify_spacing(
-  .str <- "fds  f\n @test_sn fdsfsd #test_ht, <<TAG> test! #dsa"
-)
+str_unify_spacing(c(
+  "This    @test_at that\n #test_hash",
+  "<test-no-tag> <TEST_TAG> test!?!?",
+  "An URL www.example.com/test ."
+))
 }
