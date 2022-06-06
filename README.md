@@ -30,13 +30,13 @@ str_unify_char_latin("Ŧêśť ÄöÜ")
 
 
 str_blur_numbers(c(
-  "The 2020 United States presidential election",
-  "was the 59th quadrennial presidential election",
-  "held on Tuesday, November 3, 2020. #2020"
+  "The two thousand and twenty United States presidential",
+  "election was the 59th quadrennial presidential election",
+  "held on Tuesday, November third, 2020. #2020"
 ))
-#> [1] "The <NUM_CARDI> United States presidential election"      
-#> [2] "was the <NUM_ORDI> quadrennial presidential election"     
-#> [3] "held on Tuesday, November <NUM_CARDI>, <NUM_CARDI>. #2020"
+#> [1] "The <NUM_CARDI> United States presidential"                   
+#> [2] "election was the <NUM_ORDI> quadrennial presidential election"
+#> [3] "held on Tuesday, November <NUM_ORDI>, <NUM_CARDI>. #2020"
 
 
 example_emoji <- "😀😆😡💀"
@@ -55,5 +55,5 @@ str_unify_spacing(c(
 ))
 #> [1] "This @test_at that #test_hash"              
 #> [2] "< test - no - tag > <TEST_TAG> test ! ? ! ?"
-#> [3] "An URL www.example.com/test  ."
+#> [3] "An URL www.example.com/test ."
 ```

@@ -44,9 +44,9 @@ str_unify_char_latin("Ŧêśť ÄöÜ")
 
 
 str_blur_numbers(c(
-  "The 2020 United States presidential election",
-  "was the 59th quadrennial presidential election",
-  "held on Tuesday, November 3, 2020. #2020"
+  "The two thousand and twenty United States presidential",
+  "election was the 59th quadrennial presidential election",
+  "held on Tuesday, November third, 2020. #2020"
 ))
 
 

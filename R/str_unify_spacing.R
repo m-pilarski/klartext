@@ -16,31 +16,24 @@
 #' ))
 str_unify_spacing <- function(.str){
 
+  .tok_lock_regex <-
+    "\\<([A-Z0-9_]+?)\\>|" %s+%
+    "(?<![[:alnum:]&])@[[:alnum:]_]+(?=[^[:alnum:]_]|$)|" %s+%
+    "(?<![[:alnum:]&])#[[:alpha:]][[:alnum:]_]*(?=[^[:alnum:]_]|$)|" %s+%
+    "\\b((http|ftp)s?://|mailto:|www\\.)[^\\s/$.?#][[[:alnum:]]-._~:/?#" %s+%
+    "\\[\\]@!$&'()*+%,;=]+[^\\.]\\b"
+
   .str %>%
+    stringi::stri_replace_all_regex(.tok_lock_regex, " $0 ") %>%
     stringi::stri_split_charclass("\\p{WHITE_SPACE}", omit_empty=TRUE) %>%
     tibble::as_tibble_col("tok") %>%
     tibble::rowid_to_column("doc_id") %>%
     tidyr::unnest_longer(tok) %>%
-    dplyr::mutate(
-      tok_has_twitter = stringi::stri_detect_regex(
-        tok, "^#[A-Za-z]+\\w*|^@\\w+"
-      ),
-      tok_has_url = stringi::stri_detect_regex(
-        tok, "^http"
-      ),
-      tok = dplyr::if_else(
-        !tok_has_url,
-        stringi::stri_split_boundaries(tok, type="word"),
-        list(tok)
-      ),
-      tok = purrr::modify_if(
-        tok, tok_has_twitter,
-        function(..tok){
-          c(stringi::stri_c(..tok[1:2], collapse=""), ..tok[-c(1, 2)])
-        }
-      )
-    ) %>%
-    dplyr::select(doc_id, tok) %>%
+    dplyr::mutate(tok = dplyr::if_else(
+      stringi::stri_detect_regex(tok, .tok_lock_regex, negate=TRUE),
+      stringi::stri_split_boundaries(tok, type="word"),
+      as.list(tok)
+    )) %>%
     tidyr::unnest_longer(tok) %>%
     dplyr::group_by(doc_id) %>%
     dplyr::summarize(str = stringi::stri_c(tok, collapse=" ")) %>%

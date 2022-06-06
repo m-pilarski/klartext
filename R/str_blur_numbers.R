@@ -93,6 +93,11 @@ make_cardinal_regex <- function(.lang="en"){
     .c_1_99_reg, ")"
   )
 
+  .c_1_9999_reg <- paste0(
+    "(?:", .c_1_9_reg, " thousand(?: (?:and )?(?:", .c_1_999_reg, "))?|",
+    .c_1_999_reg, ")"
+  )
+
   .c_big_l_reg <- "(?:hundred|thousand|(?:m|b|tr)illion)"
 
   .c_big_s_reg <- paste0(
@@ -100,7 +105,7 @@ make_cardinal_regex <- function(.lang="en"){
   )
 
   .c_start_reg <- paste0(
-    "(?:zero|", .c_1_999_reg, "|", .c_big_l_reg, "s?|(?:[0-9][0-9.,]*)?[0-9])"
+    "(?:zero|", .c_1_9999_reg, "|", .c_big_l_reg, "s?|(?:[0-9][0-9.,]*)?[0-9])"
   )
 
   .c_rest_reg <- paste0("(?:", .c_start_reg, "|", .c_big_s_reg, ")")
