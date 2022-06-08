@@ -40,9 +40,6 @@ devtools::install_github("m-pilarski/klartext")
 library(klartext)
 
 
-str_unify_char_latin("Ŧêśť ÄöÜ")
-
-
 str_blur_numbers(c(
   "The two thousand and twenty United States presidential",
   "election was the 59th quadrennial presidential election",
@@ -56,10 +53,12 @@ str_convert_emoji(example_emoji, .col_description=subgroup)
 str_convert_emoji(example_emoji, .col_description=group)
 
 
+str_to_ascii("Ŧêśť – - — ⅛ … ÆÄöÜ ?¿")
+
+
 str_unify_spacing(c(
-  "This    @test_at that\n #test_hash", 
-  "<test-no-tag> <TEST_TAG> test!?!?",
-  "An URL www.example.com/test ."
+  "This    @test_at that\n #test_hash <test-no-tag>", 
+  "<TEST_TAG> test!?!? An URL www.example.com/test ."
 ))
 
 ```
