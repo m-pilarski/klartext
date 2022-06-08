@@ -8,8 +8,7 @@ str_convert_emoji(
   .str,
   .table_emoji = emoji::emojis,
   .col_emoji = emoji,
-  .col_description = name,
-  .trans_description = "<{snakecase::to_screaming_snake_case(.desc)}>"
+  .col_description = name
 )
 }
 \arguments{
@@ -20,8 +19,6 @@ str_convert_emoji(
 \item{.col_emoji}{...}
 
 \item{.col_description}{...}
-
-\item{.trans_description}{...}
 }
 \value{
 \code{str_convert_emoji} - returns a ...

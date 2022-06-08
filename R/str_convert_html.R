@@ -11,5 +11,10 @@
 #'
 #' str_convert_html("&gt; &amp; &lt;")
 str_convert_html <- function(.str){
-  xml2::xml_text(xml2::read_html(stringi::stri_c("<x>", .str, "</x>")))
+  stringi::stri_replace_all_fixed(
+    str=.str,
+    pattern=klartext::table_char_html$pattern_fixed,
+    replacement=klartext::table_char_html$replacement,
+    vectorize_all=FALSE
+  )
 }

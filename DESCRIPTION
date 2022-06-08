@@ -10,7 +10,6 @@ Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.5.0)
 Imports: 
-  stringi, magrittr, readr, tidyr, dplyr, emoji, glue, snakecase, purrr, rlang, 
-  tibble, xml2
+  stringi, magrittr, tidyr, dplyr, emoji, purrr, rlang, tibble
 RoxygenNote: 7.2.0
   

@@ -42,7 +42,7 @@ str_unify_spacing <- function(.str){
 
 }
 
-globalVariables(c("doc_id", "str", "tok", "tok_has_twitter", "tok_has_url"))
+globalVariables(c("doc_id", "str", "tok"))
 
 # str_unify_spacing <- function(.str){
 #
