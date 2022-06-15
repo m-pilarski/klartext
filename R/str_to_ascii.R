@@ -21,14 +21,20 @@ str_to_ascii <- function(.str, .repl_non_ascii=""){
     stringi::stri_replace_all_charclass(
       "[\u2013\u2014\u2212\u002D]", "-"
     ) %>%
-    stringi::stri_trans_general(id="Any-Latin; Latin-ASCII")
+    stringi::stri_trans_general(
+      id="Fullwidth-Halfwidth; Any-Latin; Latin-ASCII"
+    )
 
   if(!rlang::is_null(.repl_non_ascii)){
     .str <- iconv(.str, to="ASCII", sub=.repl_non_ascii)
   }
 
+  .str <- stringi::stri_unescape_unicode(.str)
+
   return(.str)
 
 }
+
+# str_to_ascii("What’s new about that? There could have been done something about it years ago while you were VP under @BarackObama")
 
 # globalVariables(c("code_hex", "description", "pattern", "replacement"))

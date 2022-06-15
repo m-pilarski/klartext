@@ -47,7 +47,7 @@ str_blur_numbers <- function(
 
   }
 
-  if(is.character(.rep_ordinal)){
+  if(is.character(.rep_cardinal)){
 
     .card_regex <- make_cardinal_regex(.lang)
 
@@ -61,7 +61,11 @@ str_blur_numbers <- function(
       .card_regex <- make_regex_excl_hash_at(.card_regex)
     }
 
-    .str <- stringi::stri_replace_all_regex(.str, .card_regex, .rep_cardinal)
+    # if_else(
+      # stringi::stri_detect_charclass(.str, "[^[:space:][:cntrl:]]"),
+      .str <- stringr::str_replace_all(.str, .card_regex, .rep_cardinal)#,
+      # .str
+    # )
 
   }
 
@@ -105,12 +109,12 @@ make_cardinal_regex <- function(.lang="en"){
   )
 
   .c_start_reg <- paste0(
-    "(?:zero|", .c_1_9999_reg, "|", .c_big_l_reg, "s?|(?:[0-9][0-9.,]*)?[0-9])"
+    "(?:zero|", .c_1_9999_reg, "|", .c_big_l_reg, "s?)"
   )
 
   .c_rest_reg <- paste0("(?:", .c_start_reg, "|", .c_big_s_reg, ")")
 
-  .c_full_reg <- paste0(.c_start_reg, "(?:", .c_rest_reg, ")*s?")
+  .c_full_reg <- paste0("(", .c_start_reg, "|", "[[:digit:]][[:digit:] .,]*)(?:", .c_rest_reg, ")*s?")
 
   return(.c_full_reg)
 
@@ -148,7 +152,7 @@ make_ordinal_regex <- function(.lang="en"){
 
 #' @noRd
 make_regex_excl_substr <- function(.pattern){
-  paste0("(?<=(^| ))", .pattern, "(?=([ [:punct:]]|$))")
+  paste0("(?<=(^| ))", .pattern, "(?=( |[[:punct:]]|$))")
 }
 
 #' @noRd

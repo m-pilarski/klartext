@@ -30,9 +30,9 @@ str_unify_spacing <- function(.str){
     tibble::rowid_to_column("doc_id") %>%
     tidyr::unnest_longer(tok) %>%
     dplyr::mutate(tok = dplyr::if_else(
-      stringi::stri_detect_regex(tok, .tok_lock_regex, negate=TRUE),
-      stringi::stri_split_boundaries(tok, type="word"),
-      as.list(tok)
+      condition=stringi::stri_detect_regex(tok, .tok_lock_regex, negate=TRUE),
+      true=stringi::stri_split_boundaries(tok, type="word"),
+      false=as.list(tok)
     )) %>%
     tidyr::unnest_longer(tok) %>%
     dplyr::group_by(doc_id) %>%
