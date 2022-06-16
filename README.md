@@ -5,7 +5,7 @@
 
 [![R](https://github.com/m-pilarski/klartext/actions/workflows/r.yml/badge.svg)](https://github.com/m-pilarski/klartext/actions/workflows/r.yml)
 
-This package is under active development and things might change without
+This package is under active development. Things might change without
 backwards compatibility.
 
 ## Overview
@@ -32,7 +32,7 @@ str_blur_numbers(c(
 ))
 #> [1] "The <NUM_CARDI> United States presidential"                   
 #> [2] "election was the <NUM_ORDI> quadrennial presidential election"
-#> [3] "held on Tuesday, November <NUM_ORDI>, <NUM_CARDI>#2020"
+#> [3] "held on Tuesday, November <NUM_ORDI>, <NUM_CARDI>. #2020"
 
 
 example_emoji <- "😀😆😡💀"

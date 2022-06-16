@@ -18,7 +18,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 
 [![R](https://github.com/m-pilarski/klartext/actions/workflows/r.yml/badge.svg)](https://github.com/m-pilarski/klartext/actions/workflows/r.yml)
 
-This package is under active development and things might change without backwards compatibility.
+This package is under active development. Things might change without backwards compatibility.
 
 ## Overview
 

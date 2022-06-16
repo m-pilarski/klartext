@@ -110,7 +110,7 @@ make_cardinal_regex <- function(.lang="en"){
 
   .c_rest_reg <- paste0("(?:", .c_start_reg, "|", .c_big_s_reg, ")")
 
-  .c_full_reg <- paste0("(", .c_start_reg, "|", "[[:digit:]][[:digit:] .,]*)(?:", .c_rest_reg, ")*s?")
+  .c_full_reg <- paste0("(?:", .c_start_reg, "|", "-? ?(?:[[:digit:]][[:digit:] .,]*)?[[:digit:]])(?:", .c_rest_reg, ")*s?")
 
   return(.c_full_reg)
 
