@@ -3,9 +3,7 @@
 #' \code{str_convert_emoji} - Convert all Emojis to some ...
 #'
 #' @param .str ...
-#' @param .table_emoji ...
-#' @param .col_emoji ...
-#' @param .col_description ...
+#' @param .resolution ...
 #' @return \code{str_convert_emoji} - returns a ...
 #' @rdname str_convert_emoji
 #' @export
@@ -16,27 +14,33 @@
 #'   "😀😃😄😁😆😅😂"
 #' )
 #' str_convert_emoji(
-#'   "😀😃😄😁😆😅😂", .col_description=subgroup
+#'   "😀😃😄😁😆😅😂", .resolution="subgroup"
 #' )
 #' str_convert_emoji(
-#'   "😀😃😄😁😆😅😂", .col_description=group
+#'   "😀😃😄😁😆😅😂", .resolution="group"
 #' )
 str_convert_emoji <- function(
-  .str, .table_emoji=emoji::emojis, .col_emoji=emoji, .col_description=name
+  .str, .resolution=c("name", "subgroup", "group")
 ){
 
-  # .str <<- .str; .table_emoji <<- emoji::emojis; .col_emoji <<- .col_emoji; .col_description <<- .col_description
+  .resolution <- .resolution[1]
 
-  stringi::stri_replace_all_fixed(
-    str=stringi::stri_escape_unicode(.str),
-    pattern=stringi::stri_escape_unicode(
-      dplyr::pull(.table_emoji, {{.col_emoji}})
-    ),
-    replacement=format_tag(
-      stringi::stri_c("emo_", dplyr::pull(.table_emoji, {{.col_description}}))
-    ),
-    vectorize_all=FALSE
-  )
+  .pattern <-
+    klartext::table_char_emoji %>%
+    purrr::chuck("pattern_fixed") %>%
+    stringi::stri_escape_unicode()
+
+  .replacement <-
+    klartext::table_char_emoji %>%
+    purrr::chuck(stringi::stri_c("replacement_", .resolution)) %>%
+    klartext:::format_tag(.str_prepend="emo")
+
+  .str %>%
+    stringi::stri_escape_unicode() %>%
+    stringi::stri_replace_all_fixed(
+      pattern=.pattern, replacement=.replacement, vectorize_all=FALSE
+    ) %>%
+    stringi::stri_unescape_unicode()
 
 }
 
@@ -46,4 +50,7 @@ str_convert_emoji <- function(
 #   "My brother in Christ you are the president"
 # )))
 
-globalVariables(c("emoji", "name"))
+globalVariables(c(
+  "pattern_fixed", "replacement_name", "replacement_subgroup",
+  "replacement_group"
+))

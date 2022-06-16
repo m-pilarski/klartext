@@ -49,8 +49,8 @@ str_blur_numbers(c(
 
 example_emoji <- "😀😆😡💀"
 str_convert_emoji(example_emoji)
-str_convert_emoji(example_emoji, .col_description=subgroup)
-str_convert_emoji(example_emoji, .col_description=group)
+str_convert_emoji(example_emoji, .resolution="subgroup")
+str_convert_emoji(example_emoji, .resolution="group")
 
 
 str_to_ascii("Ŧêśť – - — ⅛ … ÆÄöÜ ?¿")

@@ -4,21 +4,12 @@
 \alias{str_convert_emoji}
 \title{Filter Rows That Contain Markers}
 \usage{
-str_convert_emoji(
-  .str,
-  .table_emoji = emoji::emojis,
-  .col_emoji = emoji,
-  .col_description = name
-)
+str_convert_emoji(.str, .resolution = c("name", "subgroup", "group"))
 }
 \arguments{
 \item{.str}{...}
 
-\item{.table_emoji}{...}
-
-\item{.col_emoji}{...}
-
-\item{.col_description}{...}
+\item{.resolution}{...}
 }
 \value{
 \code{str_convert_emoji} - returns a ...
@@ -33,9 +24,9 @@ str_convert_emoji(
   "😀😃😄😁😆😅😂"
 )
 str_convert_emoji(
-  "😀😃😄😁😆😅😂", .col_description=subgroup
+  "😀😃😄😁😆😅😂", .resolution="subgroup"
 )
 str_convert_emoji(
-  "😀😃😄😁😆😅😂", .col_description=group
+  "😀😃😄😁😆😅😂", .resolution="group"
 )
 }

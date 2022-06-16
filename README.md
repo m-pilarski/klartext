@@ -32,16 +32,16 @@ str_blur_numbers(c(
 ))
 #> [1] "The <NUM_CARDI> United States presidential"                   
 #> [2] "election was the <NUM_ORDI> quadrennial presidential election"
-#> [3] "held on Tuesday, November <NUM_ORDI>, <NUM_CARDI>. #2020"
+#> [3] "held on Tuesday, November <NUM_ORDI>, <NUM_CARDI>#2020"
 
 
 example_emoji <- "😀😆😡💀"
 str_convert_emoji(example_emoji)
-#> [1] "<GRINNING_FACE><GRINNING_SQUINTING_FACE><POUTING_FACE><SKULL>"
-str_convert_emoji(example_emoji, .col_description=subgroup)
-#> [1] "<FACE_SMILING><FACE_SMILING><FACE_NEGATIVE><FACE_NEGATIVE>"
-str_convert_emoji(example_emoji, .col_description=group)
-#> [1] "<SMILEYS_EMOTION><SMILEYS_EMOTION><SMILEYS_EMOTION><SMILEYS_EMOTION>"
+#> [1] "<EMO_GRINNING_FACE><EMO_GRINNING_SQUINTING_FACE><EMO_POUTING_FACE><EMO_SKULL>"
+str_convert_emoji(example_emoji, .resolution="subgroup")
+#> [1] "<EMO_FACE_SMILING><EMO_FACE_SMILING><EMO_FACE_NEGATIVE><EMO_FACE_NEGATIVE>"
+str_convert_emoji(example_emoji, .resolution="group")
+#> [1] "<EMO_SMILEYS_EMOTION><EMO_SMILEYS_EMOTION><EMO_SMILEYS_EMOTION><EMO_SMILEYS_EMOTION>"
 
 
 str_to_ascii("Ŧêśť – - — ⅛ … ÆÄöÜ ?¿")

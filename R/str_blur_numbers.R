@@ -61,11 +61,7 @@ str_blur_numbers <- function(
       .card_regex <- make_regex_excl_hash_at(.card_regex)
     }
 
-    # if_else(
-      # stringi::stri_detect_charclass(.str, "[^[:space:][:cntrl:]]"),
-      .str <- stringr::str_replace_all(.str, .card_regex, .rep_cardinal)#,
-      # .str
-    # )
+    .str <- stringi::stri_replace_all_regex(.str, .card_regex, .rep_cardinal)
 
   }
 
