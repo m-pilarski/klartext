@@ -29,8 +29,6 @@ str_to_ascii <- function(.str, .repl_non_ascii=""){
     .str <- iconv(.str, to="ASCII", sub=.repl_non_ascii)
   }
 
-  .str <- stringi::stri_unescape_unicode(.str)
-
   return(.str)
 
 }

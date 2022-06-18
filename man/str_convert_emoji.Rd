@@ -4,12 +4,12 @@
 \alias{str_convert_emoji}
 \title{Filter Rows That Contain Markers}
 \usage{
-str_convert_emoji(.str, .resolution = c("name", "subgroup", "group"))
+str_convert_emoji(.str, .resolution = "name")
 }
 \arguments{
 \item{.str}{...}
 
-\item{.resolution}{...}
+\item{.resolution}{... \code{c("name", "subgroup", "group")}}
 }
 \value{
 \code{str_convert_emoji} - returns a ...

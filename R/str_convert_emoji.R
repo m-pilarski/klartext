@@ -3,7 +3,7 @@
 #' \code{str_convert_emoji} - Convert all Emojis to some ...
 #'
 #' @param .str ...
-#' @param .resolution ...
+#' @param .resolution ... \code{c("name", "subgroup", "group")}
 #' @return \code{str_convert_emoji} - returns a ...
 #' @rdname str_convert_emoji
 #' @export
@@ -20,27 +20,21 @@
 #'   "😀😃😄😁😆😅😂", .resolution="group"
 #' )
 str_convert_emoji <- function(
-  .str, .resolution=c("name", "subgroup", "group")
+  .str, .resolution="name"
 ){
 
   .resolution <- .resolution[1]
 
-  .pattern <-
-    klartext::table_char_emoji %>%
-    purrr::chuck("pattern_fixed") %>%
-    stringi::stri_escape_unicode()
+  .pattern <- klartext::table_char_emoji[["pattern_fixed"]]
 
   .replacement <-
     klartext::table_char_emoji %>%
     purrr::chuck(stringi::stri_c("replacement_", .resolution)) %>%
     klartext:::format_tag(.str_prepend="emo")
 
-  .str %>%
-    stringi::stri_escape_unicode() %>%
-    stringi::stri_replace_all_fixed(
-      pattern=.pattern, replacement=.replacement, vectorize_all=FALSE
-    ) %>%
-    stringi::stri_unescape_unicode()
+  stringi::stri_replace_all_fixed(
+    .str, pattern=.pattern, replacement=.replacement, vectorize_all=FALSE
+  )
 
 }
 

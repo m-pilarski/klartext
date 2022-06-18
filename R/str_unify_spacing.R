@@ -25,6 +25,7 @@ str_unify_spacing <- function(.str){
 
   .str %>%
     stringi::stri_replace_all_regex(.tok_lock_regex, " $0 ") %>%
+    stringi::stri_replace_all_regex("<[A-Z0-9_]+?>", " $0 ") %>%
     stringi::stri_split_charclass("\\p{WHITE_SPACE}", omit_empty=TRUE) %>%
     tibble::as_tibble_col("tok") %>%
     tibble::rowid_to_column("doc_id") %>%
@@ -36,7 +37,10 @@ str_unify_spacing <- function(.str){
     )) %>%
     tidyr::unnest_longer(tok) %>%
     dplyr::group_by(doc_id) %>%
-    dplyr::summarize(str = stringi::stri_c(tok, collapse=" ")) %>%
+    dplyr::summarize(
+      str = stringi::stri_c(tok, collapse=" "), .groups="drop"
+    ) %>%
+    tidyr::complete(doc_id = seq_along(.str), fill=list(str="")) %>%
     dplyr::pull(str) %>%
     rlang::set_names(names(.str))
 
