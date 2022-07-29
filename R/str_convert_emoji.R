@@ -30,7 +30,7 @@ str_convert_emoji <- function(
   .replacement <-
     klartext::table_char_emoji %>%
     purrr::chuck(stringi::stri_c("replacement_", .resolution)) %>%
-    klartext:::format_tag(.str_prepend="emo")
+    format_klartag(.str_prepend="emo")
 
   stringi::stri_replace_all_fixed(
     .str, pattern=.pattern, replacement=.replacement, vectorize_all=FALSE

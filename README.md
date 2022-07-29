@@ -15,6 +15,7 @@ klartext is a collection of tools to clean and normalize text.
 ## Installation
 
 ``` r
+
 # install.packages("devtools")
 devtools::install_github("m-pilarski/klartext")
 ```
@@ -22,18 +23,8 @@ devtools::install_github("m-pilarski/klartext")
 ## Usage
 
 ``` r
+
 library(klartext)
-
-
-str_blur_numbers(c(
-  "The two thousand and twenty United States presidential",
-  "election was the 59th quadrennial presidential election",
-  "held on Tuesday, November third, 2020. #2020"
-))
-#> [1] "The <NUM_CARDI> United States presidential"                   
-#> [2] "election was the <NUM_ORDI> quadrennial presidential election"
-#> [3] "held on Tuesday, November <NUM_ORDI>, <NUM_CARDI>. #2020"
-
 
 example_emoji <- "😀😆😡💀"
 str_convert_emoji(example_emoji)
@@ -54,4 +45,22 @@ str_unify_spacing(c(
 ))
 #> [1] "This @test_at that #test_hash < test - no - tag >"    
 #> [2] "<TEST_TAG> test ! ? ! ? An URL www.example.com/test ."
+
+str_blur_numbers(c(
+  "The two thousand and twenty United States presidential",
+  "election was the 59th quadrennial presidential election",
+  "held on Tuesday, November third, 2020. #2020"
+))
+#> [1] "The <NUM_CARDI> United States presidential"                   
+#> [2] "election was the <NUM_ORDI> quadrennial presidential election"
+#> [3] "held on Tuesday, November <NUM_ORDI>, <NUM_CARDI>. #2020"
+
+str_describe_numbers(c(
+  "The two thousand and twenty United States presidential",
+  "election was the 59th quadrennial presidential election",
+  "held on Tuesday, November third, 2020."
+))
+#> [1] "The two thousand and twenty United States presidential"        
+#> [2] "election was the fifty-ninth quadrennial presidential election"
+#> [3] "held on Tuesday, November third, two thousand and twenty."
 ```

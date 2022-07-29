@@ -39,14 +39,6 @@ devtools::install_github("m-pilarski/klartext")
 
 library(klartext)
 
-
-str_blur_numbers(c(
-  "The two thousand and twenty United States presidential",
-  "election was the 59th quadrennial presidential election",
-  "held on Tuesday, November third, 2020. #2020"
-))
-
-
 example_emoji <- "😀😆😡💀"
 str_convert_emoji(example_emoji)
 str_convert_emoji(example_emoji, .resolution="subgroup")
@@ -59,6 +51,18 @@ str_to_ascii("Ŧêśť – - — ⅛ … ÆÄöÜ ?¿")
 str_unify_spacing(c(
   "This    @test_at that\n #test_hash <test-no-tag>", 
   "<TEST_TAG> test!?!? An URL www.example.com/test ."
+))
+
+str_blur_numbers(c(
+  "The two thousand and twenty United States presidential",
+  "election was the 59th quadrennial presidential election",
+  "held on Tuesday, November third, 2020. #2020"
+))
+
+str_describe_numbers(c(
+  "The two thousand and twenty United States presidential",
+  "election was the 59th quadrennial presidential election",
+  "held on Tuesday, November third, 2020."
 ))
 
 ```

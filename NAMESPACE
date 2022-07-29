@@ -2,10 +2,12 @@
 
 export("%>%")
 export("%s+%")
+export(..klartext_num2words)
 export(str_blur_numbers)
 export(str_blur_url)
 export(str_convert_emoji)
 export(str_convert_html)
+export(str_describe_numbers)
 export(str_to_ascii)
 export(str_unify_punctuation)
 export(str_unify_spacing)

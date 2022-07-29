@@ -7,7 +7,7 @@ magrittr::`%>%`
 stringi::`%s+%`
 
 #' @noRd
-format_tag <- function(
+format_klartag <- function(
   .str, .str_prepend="", .str_append=""
 ){
 
@@ -26,4 +26,9 @@ format_tag <- function(
 
   return(.tag)
 
+}
+
+#' @noRd
+install_num2words <- function(.method="auto", .conda="auto") {
+  reticulate::py_install("num2words", method=.method, conda=.conda)
 }
