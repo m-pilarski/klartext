@@ -19,7 +19,7 @@ str_describe_numbers <- function(
 ){
 
   if(!reticulate::py_module_available("num2words")){
-    .do_intall <- utils::askYesNo(
+    .do_install <- utils::askYesNo(
       msg=paste0(
         "The required python-package \"num2words\" is not\n",
         "installed in the currently used environment.\n",
