@@ -3,13 +3,13 @@ Type: Package
 Title: Text Cleaning Tools
 Version: 0.1.0
 Author: Moritz Pilarski
-Maintainer: Moritz Pilarski <yourself@somewhere.net>
+Maintainer: Moritz Pilarski <https://mailhide.io/e/f52nQfHV>
 Description: Tools to clean and process text. 
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.5.0)
 Imports: 
-  stringi, dplyr, tidyr, tibble, purrr, magrittr, rlang, emoji, reticulate
+  stringi, dplyr, tidyr, tibble, purrr, magrittr, rlang, reticulate
 RoxygenNote: 7.2.0
   
