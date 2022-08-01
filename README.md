@@ -57,10 +57,10 @@ str_blur_numbers(c(
 
 str_describe_numbers(c(
   "The 2020 United States presidential election was the", 
-  "59thquadrennial presidential election held on Tuesday,",
+  "59th quadrennial presidential election held on Tuesday,",
   "November 3rd, 2020."
 ))
 #> [1] "The two thousand and twenty United States presidential election was the"
-#> [2] "59thquadrennial presidential election held on Tuesday,"                 
+#> [2] "fifty-ninth quadrennial presidential election held on Tuesday,"         
 #> [3] "November third, two thousand and twenty."
 ```
