@@ -88,3 +88,4 @@ str_describe_numbers <- function(
 
 }
 
+globalVariables(c(".do_install"))

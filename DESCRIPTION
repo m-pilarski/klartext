@@ -3,7 +3,7 @@ Type: Package
 Title: Text Cleaning Tools
 Version: 0.1.0
 Author: Moritz Pilarski
-Maintainer: Moritz Pilarski <https://mailhide.io/e/f52nQfHV>
+Maintainer: Moritz Pilarski <example@example.com>
 Description: Tools to clean and process text. 
 License: GPL-2
 Encoding: UTF-8
