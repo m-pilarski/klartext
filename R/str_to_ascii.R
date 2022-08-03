@@ -15,6 +15,10 @@ str_to_ascii <- function(.str, .repl_non_ascii=""){
 
   .str <-
     .str %>%
+    stringi::stri_replace_all_fixed(
+      table_char_html$pattern_fixed, table_char_html$replacement,
+      vectorize_all=FALSE
+    ) %>%
     stringi::stri_replace_all_charclass(
       "[\u0022\u0027\u0060\u00B4\u2018\u2019\u201C\u201D]", "'"
     ) %>%
