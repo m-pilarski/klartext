@@ -73,6 +73,6 @@ table_char_currency %>%
     dplyr::across(where(is.logical), dplyr::if_else, "\u2705", "\u274C")
   ) %>%
   knitr::kable(format="pipe") %>%
-  readr::write_lines("table_char_currency.md")
+  readr::write_lines("./data-raw/table_char_currency.md")
 
 usethis::use_data(table_char_currency)

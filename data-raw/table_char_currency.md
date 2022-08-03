@@ -1,176 +1,176 @@
-|symbol |currency  |currency_spec                        |symbol_is_ascii |
-|:------|:---------|:------------------------------------|:---------------|
-|؋      |afghani   |afghani                              |FALSE           |
-|Ar     |ariary    |ariary                               |TRUE            |
-|฿      |baht      |baht                                 |FALSE           |
-|B.     |balboa    |balboa                               |TRUE            |
-|Br     |birr      |birr                                 |TRUE            |
-|Br     |ruble     |ruble                                |TRUE            |
-|₿      |bitcoin   |bitcoin                              |FALSE           |
-|Bs.    |bolivar   |bolivar                              |TRUE            |
-|₵      |cedi      |cedi                                 |FALSE           |
-|¢      |cent      |cent                                 |FALSE           |
-|c      |cent      |cent                                 |TRUE            |
-|Ch.    |chhertum  |chhertum                             |TRUE            |
-|₡      |colon     |colon                                |FALSE           |
-|C$     |córdoba   |córdoba                              |TRUE            |
-|D      |dalasi    |dalasi                               |TRUE            |
-|ден    |denar     |denar                                |FALSE           |
-|دج     |dinar     |dinar                                |FALSE           |
-|.د.ب   |dinar     |dinar                                |FALSE           |
-|د.ع    |dinar     |dinar                                |FALSE           |
-|د.أ    |dinar     |dinar                                |FALSE           |
-|د.ك    |dinar     |dinar                                |FALSE           |
-|.د     |dinar     |dinar                                |FALSE           |
-|дин    |dinar     |dinar                                |FALSE           |
-|د.ت    |dinar     |dinar                                |FALSE           |
-|د.م.   |dirham    |dirham                               |FALSE           |
-|د.إ    |dirham    |dirham                               |FALSE           |
-|Db     |dobra     |dobra                                |TRUE            |
-|$      |dollar    |dollar                               |TRUE            |
-|A$     |dollar    |Australian dollar                    |TRUE            |
-|B$     |dollar    |Bahamian dollar                      |TRUE            |
-|Bds$   |dollar    |Barbadian dollar                     |TRUE            |
-|BZ$    |dollar    |Belizean dollar                      |TRUE            |
-|BD$    |dollar    |Bermudian dollar                     |TRUE            |
-|B$     |dollar    |Brunei dollar                        |TRUE            |
-|CA$    |dollar    |Canadian dollar                      |TRUE            |
-|CI$    |dollar    |Cayman Islands dollar                |TRUE            |
-|EC$    |dollar    |East Caribbean dollar                |TRUE            |
-|FJ$    |dollar    |Fiji dollar                          |TRUE            |
-|G$     |dollar    |Guyanese dollar                      |TRUE            |
-|HK$    |dollar    |Hong Kong dollar                     |TRUE            |
-|元     |dollar    |Hong Kong dollar                     |FALSE           |
-|圓     |dollar    |Hong Kong dollar                     |FALSE           |
-|J$     |dollar    |Jamaican dollar                      |TRUE            |
-|L$     |dollar    |Liberian dollar                      |TRUE            |
-|N$     |dollar    |Namibian dollar                      |TRUE            |
-|NZ$    |dollar    |New Zealand dollar                   |TRUE            |
-|S$     |dollar    |Singaporean dollar                   |TRUE            |
-|SI$    |dollar    |Solomon Islands dollar               |TRUE            |
-|SRD    |dollar    |Surinamese dollar                    |TRUE            |
-|NT$    |dollar    |New Taiwan dollar                    |TRUE            |
-|元     |dollar    |New Taiwan dollar                    |FALSE           |
-|圓     |dollar    |New Taiwan dollar                    |FALSE           |
-|TT$    |dollar    |Trinidad and Tobago dollar           |TRUE            |
-|TV$    |dollar    |Tuvaluan dollar                      |TRUE            |
-|US$    |dollar    |United States dollar                 |TRUE            |
-|$      |peso      |peso                                 |TRUE            |
-|$      |peso      |Argentine peso                       |TRUE            |
-|CLP$   |peso      |Chilean peso                         |TRUE            |
-|COP$   |peso      |Colombian peso                       |TRUE            |
-|$MN    |peso      |Cuban peso                           |TRUE            |
-|CUC$   |peso      |Cuban convertible peso               |TRUE            |
-|RD$    |peso      |Dominican peso                       |TRUE            |
-|$      |peso      |Mexican peso                         |TRUE            |
-|$U     |peso      |Uruguayan peso                       |TRUE            |
-|₫      |dong      |dong                                 |FALSE           |
-|֏      |dram      |dram                                 |FALSE           |
-|Esc    |escudo    |escudo                               |TRUE            |
-|Ξ      |Ether     |Ether                                |FALSE           |
-|€      |euro      |euro                                 |FALSE           |
-|ƒ      |florin    |florin                               |FALSE           |
-|Afl.   |florin    |Aruban florin                        |TRUE            |
-|NAƒ    |florin    |Netherlands Antillean guilder florin |FALSE           |
-|Ft     |forint    |forint                               |TRUE            |
-|FBu    |franc     |franc                                |TRUE            |
-|FCFA   |franc     |franc                                |TRUE            |
-|CFA    |franc     |franc                                |TRUE            |
-|F      |franc     |franc                                |TRUE            |
-|Fr     |franc     |franc                                |TRUE            |
-|fr     |franc     |franc                                |TRUE            |
-|CF     |franc     |Comorian franc                       |TRUE            |
-|CF     |franc     |Congolese franc                      |TRUE            |
-|FC     |franc     |Congolese franc                      |TRUE            |
-|Fdj    |franc     |Djiboutian franc                     |TRUE            |
-|DF     |franc     |Djiboutian franc                     |TRUE            |
-|FG     |franc     |Guinean franc                        |TRUE            |
-|GFr    |franc     |Guinean franc                        |TRUE            |
-|SFr    |franc     |Swiss franc                          |TRUE            |
-|FRw    |franc     |franc                                |TRUE            |
-|G      |gourde    |gourde                               |TRUE            |
-|gr     |grosz     |grosz                                |TRUE            |
-|₲      |guarani   |guarani                              |FALSE           |
-|h      |haler     |haler                                |TRUE            |
-|₴      |hryvnia   |hryvnia                              |FALSE           |
-|₭      |kip       |kip                                  |FALSE           |
-|Kč     |koruna    |koruna                               |FALSE           |
-|kr     |krone     |krone                                |TRUE            |
-|kn     |kuna      |kuna                                 |TRUE            |
-|Kz     |kwanza    |kwanza                               |TRUE            |
-|K      |kyat      |kyat                                 |TRUE            |
-|L      |lek       |lek                                  |TRUE            |
-|Le     |leone     |leone                                |TRUE            |
-|лв.    |lev       |lev                                  |FALSE           |
-|E      |lilangeni |lilangeni                            |TRUE            |
-|L      |lilangeni |lilangeni                            |TRUE            |
-|lp     |lipa      |lipa                                 |TRUE            |
-|₺      |lira      |lira                                 |FALSE           |
-|M      |loti      |loti                                 |TRUE            |
-|₼      |manat     |manat                                |FALSE           |
-|KM     |mark      |mark                                 |TRUE            |
-|MT     |metical   |metical                              |TRUE            |
-|₥      |mill      |mill                                 |FALSE           |
-|Nfk    |nakfa     |nakfa                                |TRUE            |
-|₦      |naira     |naira                                |FALSE           |
-|Nu.    |ngultrum  |ngultrum                             |TRUE            |
-|UM     |ouguiya   |ouguiya                              |TRUE            |
-|T$     |paanga    |paanga                               |TRUE            |
-|MOP$   |pataca    |pataca                               |TRUE            |
-|p      |penny     |penny                                |TRUE            |
-|₱      |peso      |peso                                 |FALSE           |
-|pt     |piastre   |piastre                              |TRUE            |
-|£      |pound     |pound                                |FALSE           |
-|E£     |pound     |Egyptian pound                       |FALSE           |
-|£L     |pound     |Lebanese pound                       |FALSE           |
-|SSP £  |pound     |South Sudanese pound                 |FALSE           |
-|£Sd.   |pound     |Sudanese pound                       |FALSE           |
-|£S     |pound     |Syrian pound                         |FALSE           |
-|P      |pula      |pula                                 |TRUE            |
-|Q      |quetzal   |quetzal                              |TRUE            |
-|q      |qindarke  |qindarke                             |TRUE            |
-|R      |rand      |rand                                 |TRUE            |
-|R$     |real      |real                                 |TRUE            |
-|﷼      |rial      |rial                                 |FALSE           |
-|ر.ع.   |rial      |rial                                 |FALSE           |
-|ر.ق    |rial      |rial                                 |FALSE           |
-|ر.س    |riyal     |riyal                                |FALSE           |
-|ر.ي    |rial      |rial                                 |FALSE           |
-|៛      |riel      |riel                                 |FALSE           |
-|RM     |ringgit   |ringgit                              |TRUE            |
-|₽      |ruble     |ruble                                |FALSE           |
-|Rf.    |rufiyaa   |rufiyaa                              |TRUE            |
-|₹      |rupee     |rupee                                |FALSE           |
-|Re.    |rupee     |rupee                                |TRUE            |
-|₨.     |rupee     |rupee                                |FALSE           |
-|NRe.   |rupee     |Nepalese rupee                       |TRUE            |
-|₨      |rupee     |Nepalese rupee                       |FALSE           |
-|रू.     |rupee     |Nepalese rupee                       |FALSE           |
-|SLRe.  |rupee     |Sri Lankan rupee                     |TRUE            |
-|SL₨.   |rupee     |Sri Lankan rupee                     |FALSE           |
-|රු      |rupee     |Sri Lankan rupee                     |FALSE           |
-|S₨.    |rupee     |rupee                                |FALSE           |
-|SRe.   |rupee     |rupee                                |TRUE            |
-|Rp.    |rupiah    |rupiah                               |TRUE            |
-|₪      |shekel    |shekel                               |FALSE           |
-|TSh.   |shilling  |shilling                             |TRUE            |
-|KSh.   |shilling  |shilling                             |TRUE            |
-|Sh.So. |shilling  |shilling                             |TRUE            |
-|USh.   |shilling  |shilling                             |TRUE            |
-|S.     |sol       |sol                                  |TRUE            |
-|SDR    |special   |special                              |TRUE            |
-|сом    |som       |som                                  |FALSE           |
-|৳      |taka      |taka                                 |FALSE           |
-|WS$    |tala      |tala                                 |TRUE            |
-|₮      |togrog    |togrog                               |FALSE           |
-|VT     |vatu      |vatu                                 |TRUE            |
-|₩      |won       |won                                  |FALSE           |
-|원     |won       |South Korean won                     |FALSE           |
-|圓     |won       |South Korean won                     |FALSE           |
-|¥      |yuan      |yuan                                 |FALSE           |
-|元     |yuan      |Renminbi yuan                        |FALSE           |
-|圆     |yuan      |Renminbi yuan                        |FALSE           |
-|¥      |yen       |yen                                  |FALSE           |
-|円     |yen       |Japanese yen                         |FALSE           |
-|圓     |yen       |Japanese yen                         |FALSE           |
-|zł.    |zloty     |zloty                                |FALSE           |
+|symbol |currency  |currency_spec                        |symbol_is_ascii |symbol_covertible_ascii |
+|:------|:---------|:------------------------------------|:---------------|:-----------------------|
+|؋      |afghani   |afghani                              |❌              |❌                      |
+|Ar     |ariary    |ariary                               |✅              |✅                      |
+|฿      |baht      |baht                                 |❌              |❌                      |
+|B.     |balboa    |balboa                               |✅              |✅                      |
+|Br     |birr      |birr                                 |✅              |✅                      |
+|Br     |ruble     |ruble                                |✅              |✅                      |
+|₿      |bitcoin   |bitcoin                              |❌              |❌                      |
+|Bs.    |bolivar   |bolivar                              |✅              |✅                      |
+|₵      |cedi      |cedi                                 |❌              |❌                      |
+|¢      |cent      |cent                                 |❌              |❌                      |
+|c      |cent      |cent                                 |✅              |✅                      |
+|Ch.    |chhertum  |chhertum                             |✅              |✅                      |
+|₡      |colon     |colon                                |❌              |❌                      |
+|C$     |córdoba   |córdoba                              |✅              |✅                      |
+|D      |dalasi    |dalasi                               |✅              |✅                      |
+|ден    |denar     |denar                                |❌              |✅                      |
+|دج     |dinar     |dinar                                |❌              |✅                      |
+|.د.ب   |dinar     |dinar                                |❌              |✅                      |
+|د.ع    |dinar     |dinar                                |❌              |❌                      |
+|د.أ    |dinar     |dinar                                |❌              |✅                      |
+|د.ك    |dinar     |dinar                                |❌              |✅                      |
+|.د     |dinar     |dinar                                |❌              |✅                      |
+|дин    |dinar     |dinar                                |❌              |✅                      |
+|د.ت    |dinar     |dinar                                |❌              |✅                      |
+|د.م.   |dirham    |dirham                               |❌              |✅                      |
+|د.إ    |dirham    |dirham                               |❌              |✅                      |
+|Db     |dobra     |dobra                                |✅              |✅                      |
+|$      |dollar    |dollar                               |✅              |✅                      |
+|A$     |dollar    |Australian dollar                    |✅              |✅                      |
+|B$     |dollar    |Bahamian dollar                      |✅              |✅                      |
+|Bds$   |dollar    |Barbadian dollar                     |✅              |✅                      |
+|BZ$    |dollar    |Belizean dollar                      |✅              |✅                      |
+|BD$    |dollar    |Bermudian dollar                     |✅              |✅                      |
+|B$     |dollar    |Brunei dollar                        |✅              |✅                      |
+|CA$    |dollar    |Canadian dollar                      |✅              |✅                      |
+|CI$    |dollar    |Cayman Islands dollar                |✅              |✅                      |
+|EC$    |dollar    |East Caribbean dollar                |✅              |✅                      |
+|FJ$    |dollar    |Fiji dollar                          |✅              |✅                      |
+|G$     |dollar    |Guyanese dollar                      |✅              |✅                      |
+|HK$    |dollar    |Hong Kong dollar                     |✅              |✅                      |
+|元     |dollar    |Hong Kong dollar                     |❌              |✅                      |
+|圓     |dollar    |Hong Kong dollar                     |❌              |✅                      |
+|J$     |dollar    |Jamaican dollar                      |✅              |✅                      |
+|L$     |dollar    |Liberian dollar                      |✅              |✅                      |
+|N$     |dollar    |Namibian dollar                      |✅              |✅                      |
+|NZ$    |dollar    |New Zealand dollar                   |✅              |✅                      |
+|S$     |dollar    |Singaporean dollar                   |✅              |✅                      |
+|SI$    |dollar    |Solomon Islands dollar               |✅              |✅                      |
+|SRD    |dollar    |Surinamese dollar                    |✅              |✅                      |
+|NT$    |dollar    |New Taiwan dollar                    |✅              |✅                      |
+|元     |dollar    |New Taiwan dollar                    |❌              |✅                      |
+|圓     |dollar    |New Taiwan dollar                    |❌              |✅                      |
+|TT$    |dollar    |Trinidad and Tobago dollar           |✅              |✅                      |
+|TV$    |dollar    |Tuvaluan dollar                      |✅              |✅                      |
+|US$    |dollar    |United States dollar                 |✅              |✅                      |
+|$      |peso      |peso                                 |✅              |✅                      |
+|$      |peso      |Argentine peso                       |✅              |✅                      |
+|CLP$   |peso      |Chilean peso                         |✅              |✅                      |
+|COP$   |peso      |Colombian peso                       |✅              |✅                      |
+|$MN    |peso      |Cuban peso                           |✅              |✅                      |
+|CUC$   |peso      |Cuban convertible peso               |✅              |✅                      |
+|RD$    |peso      |Dominican peso                       |✅              |✅                      |
+|$      |peso      |Mexican peso                         |✅              |✅                      |
+|$U     |peso      |Uruguayan peso                       |✅              |✅                      |
+|₫      |dong      |dong                                 |❌              |❌                      |
+|֏      |dram      |dram                                 |❌              |❌                      |
+|Esc    |escudo    |escudo                               |✅              |✅                      |
+|Ξ      |Ether     |Ether                                |❌              |✅                      |
+|€      |euro      |euro                                 |❌              |❌                      |
+|ƒ      |florin    |florin                               |❌              |✅                      |
+|Afl.   |florin    |Aruban florin                        |✅              |✅                      |
+|NAƒ    |florin    |Netherlands Antillean guilder florin |❌              |✅                      |
+|Ft     |forint    |forint                               |✅              |✅                      |
+|FBu    |franc     |franc                                |✅              |✅                      |
+|FCFA   |franc     |franc                                |✅              |✅                      |
+|CFA    |franc     |franc                                |✅              |✅                      |
+|F      |franc     |franc                                |✅              |✅                      |
+|Fr     |franc     |franc                                |✅              |✅                      |
+|fr     |franc     |franc                                |✅              |✅                      |
+|CF     |franc     |Comorian franc                       |✅              |✅                      |
+|CF     |franc     |Congolese franc                      |✅              |✅                      |
+|FC     |franc     |Congolese franc                      |✅              |✅                      |
+|Fdj    |franc     |Djiboutian franc                     |✅              |✅                      |
+|DF     |franc     |Djiboutian franc                     |✅              |✅                      |
+|FG     |franc     |Guinean franc                        |✅              |✅                      |
+|GFr    |franc     |Guinean franc                        |✅              |✅                      |
+|SFr    |franc     |Swiss franc                          |✅              |✅                      |
+|FRw    |franc     |franc                                |✅              |✅                      |
+|G      |gourde    |gourde                               |✅              |✅                      |
+|gr     |grosz     |grosz                                |✅              |✅                      |
+|₲      |guarani   |guarani                              |❌              |❌                      |
+|h      |haler     |haler                                |✅              |✅                      |
+|₴      |hryvnia   |hryvnia                              |❌              |❌                      |
+|₭      |kip       |kip                                  |❌              |❌                      |
+|Kč     |koruna    |koruna                               |❌              |✅                      |
+|kr     |krone     |krone                                |✅              |✅                      |
+|kn     |kuna      |kuna                                 |✅              |✅                      |
+|Kz     |kwanza    |kwanza                               |✅              |✅                      |
+|K      |kyat      |kyat                                 |✅              |✅                      |
+|L      |lek       |lek                                  |✅              |✅                      |
+|Le     |leone     |leone                                |✅              |✅                      |
+|лв.    |lev       |lev                                  |❌              |✅                      |
+|E      |lilangeni |lilangeni                            |✅              |✅                      |
+|L      |lilangeni |lilangeni                            |✅              |✅                      |
+|lp     |lipa      |lipa                                 |✅              |✅                      |
+|₺      |lira      |lira                                 |❌              |✅                      |
+|M      |loti      |loti                                 |✅              |✅                      |
+|₼      |manat     |manat                                |❌              |❌                      |
+|KM     |mark      |mark                                 |✅              |✅                      |
+|MT     |metical   |metical                              |✅              |✅                      |
+|₥      |mill      |mill                                 |❌              |❌                      |
+|Nfk    |nakfa     |nakfa                                |✅              |✅                      |
+|₦      |naira     |naira                                |❌              |❌                      |
+|Nu.    |ngultrum  |ngultrum                             |✅              |✅                      |
+|UM     |ouguiya   |ouguiya                              |✅              |✅                      |
+|T$     |paanga    |paanga                               |✅              |✅                      |
+|MOP$   |pataca    |pataca                               |✅              |✅                      |
+|p      |penny     |penny                                |✅              |✅                      |
+|₱      |peso      |peso                                 |❌              |❌                      |
+|pt     |piastre   |piastre                              |✅              |✅                      |
+|£      |pound     |pound                                |❌              |❌                      |
+|E£     |pound     |Egyptian pound                       |❌              |❌                      |
+|£L     |pound     |Lebanese pound                       |❌              |❌                      |
+|SSP £  |pound     |South Sudanese pound                 |❌              |❌                      |
+|£Sd.   |pound     |Sudanese pound                       |❌              |❌                      |
+|£S     |pound     |Syrian pound                         |❌              |❌                      |
+|P      |pula      |pula                                 |✅              |✅                      |
+|Q      |quetzal   |quetzal                              |✅              |✅                      |
+|q      |qindarke  |qindarke                             |✅              |✅                      |
+|R      |rand      |rand                                 |✅              |✅                      |
+|R$     |real      |real                                 |✅              |✅                      |
+|﷼      |rial      |rial                                 |❌              |✅                      |
+|ر.ع.   |rial      |rial                                 |❌              |❌                      |
+|ر.ق    |rial      |rial                                 |❌              |✅                      |
+|ر.س    |riyal     |riyal                                |❌              |✅                      |
+|ر.ي    |rial      |rial                                 |❌              |✅                      |
+|៛      |riel      |riel                                 |❌              |❌                      |
+|RM     |ringgit   |ringgit                              |✅              |✅                      |
+|₽      |ruble     |ruble                                |❌              |❌                      |
+|Rf.    |rufiyaa   |rufiyaa                              |✅              |✅                      |
+|₹      |rupee     |rupee                                |❌              |✅                      |
+|Re.    |rupee     |rupee                                |✅              |✅                      |
+|₨.     |rupee     |rupee                                |❌              |❌                      |
+|NRe.   |rupee     |Nepalese rupee                       |✅              |✅                      |
+|₨      |rupee     |Nepalese rupee                       |❌              |❌                      |
+|रू.     |rupee     |Nepalese rupee                       |❌              |✅                      |
+|SLRe.  |rupee     |Sri Lankan rupee                     |✅              |✅                      |
+|SL₨.   |rupee     |Sri Lankan rupee                     |❌              |❌                      |
+|රු      |rupee     |Sri Lankan rupee                     |❌              |❌                      |
+|S₨.    |rupee     |rupee                                |❌              |❌                      |
+|SRe.   |rupee     |rupee                                |✅              |✅                      |
+|Rp.    |rupiah    |rupiah                               |✅              |✅                      |
+|₪      |shekel    |shekel                               |❌              |❌                      |
+|TSh.   |shilling  |shilling                             |✅              |✅                      |
+|KSh.   |shilling  |shilling                             |✅              |✅                      |
+|Sh.So. |shilling  |shilling                             |✅              |✅                      |
+|USh.   |shilling  |shilling                             |✅              |✅                      |
+|S.     |sol       |sol                                  |✅              |✅                      |
+|SDR    |special   |special                              |✅              |✅                      |
+|сом    |som       |som                                  |❌              |✅                      |
+|৳      |taka      |taka                                 |❌              |✅                      |
+|WS$    |tala      |tala                                 |✅              |✅                      |
+|₮      |togrog    |togrog                               |❌              |❌                      |
+|VT     |vatu      |vatu                                 |✅              |✅                      |
+|₩      |won       |won                                  |❌              |❌                      |
+|원     |won       |South Korean won                     |❌              |✅                      |
+|圓     |won       |South Korean won                     |❌              |✅                      |
+|¥      |yuan      |yuan                                 |❌              |❌                      |
+|元     |yuan      |Renminbi yuan                        |❌              |✅                      |
+|圆     |yuan      |Renminbi yuan                        |❌              |✅                      |
+|¥      |yen       |yen                                  |❌              |❌                      |
+|円     |yen       |Japanese yen                         |❌              |✅                      |
+|圓     |yen       |Japanese yen                         |❌              |✅                      |
+|zł.    |zloty     |zloty                                |❌              |✅                      |
