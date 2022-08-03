@@ -58,9 +58,20 @@ table_char_currency <-
   dplyr::select(symbol, currency=name, currency_spec=currency) %>%
   dplyr::filter(symbol != "") %>%
   tidyr::drop_na() %>%
-  dplyr::mutate(symbol_is_ascii = stringr::str_detect(symbol, "[^[:ascii:]]"))
+  dplyr::mutate(
+    symbol_is_ascii =
+      symbol %>%
+      stringr::str_detect("[^[:ascii:]]", negate=TRUE),
+    symbol_covertible_ascii =
+      symbol %>%
+      klartext::str_to_ascii(.repl_non_ascii=NULL) %>%
+      stringr::str_detect("[^[:ascii:]]", negate=TRUE)
+  )
 
 table_char_currency %>%
+  dplyr::mutate(
+    dplyr::across(where(is.logical), dplyr::if_else, "\u2705", "\u274C")
+  ) %>%
   knitr::kable(format="pipe") %>%
   readr::write_lines("table_char_currency.md")
 
