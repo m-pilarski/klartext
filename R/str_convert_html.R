@@ -1,9 +1,11 @@
-#' Filter Rows That Contain Markers
+#' Convert HTML character references to Unicode characters
 #'
-#' \code{str_convert_html} - Convert all Emojis to some ...
+#' \code{str_convert_html} - Convert HTML character references to Unicode
+#' characters
 #'
-#' @param .str ...
-#' @return \code{str_convert_html} - returns a ...
+#' @param .str Character vector to be converted
+#' @return \code{str_convert_html} - Returns the converted character vector
+#' @references https://www.w3.org/TR/REC-html40/sgml/entities.html
 #' @rdname str_convert_html
 #' @export
 #' @examples

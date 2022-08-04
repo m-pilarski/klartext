@@ -9,37 +9,24 @@
 #' @examples
 #' ## str_describe_numbers EXAMPLE:
 #'
+#' \dontrun{
 #' str_describe_numbers(c(
 #'   "The 2020 United States presidential election",
 #'   "was the 59th quadrennial presidential election",
 #'   "held on Tuesday, November 3, 2020"
 #' ))
+#' }
 str_describe_numbers <- function(
   .str, .lang="en", .ordinal=TRUE
 ){
 
   if(!reticulate::py_module_available("num2words")){
-    .do_install <- utils::askYesNo(
-      msg=paste0(
-        "The required python-package \"num2words\" is not\n",
-        "installed in the currently used environment.\n",
-        "Dou you want to install it?"
-      ),
-      default=FALSE
+    stop(
+      "The required python-package \"num2words\" is not installed in the ",
+      "environment currently used by reticulate. Run install_num2words() or ",
+      "install it manually."
     )
-    if(.do_install & interactive()){
-      install_num2words()
-    }else{
-      warning("Could not satisfy dependencies. Returning NULL")
-      return(invisible(NULL))
-    }
   }
-
-  # .str <- c(
-  #   "The 2020 United States presidential election",
-  #   "was the 59th quadrennial presidential election",
-  #   "held on Tuesday, November 3, 2020"
-  # )
 
   stopifnot(.lang %in% c("en"))
 

@@ -2,20 +2,20 @@
 % Please edit documentation in R/str_to_ascii.R
 \name{str_to_ascii}
 \alias{str_to_ascii}
-\title{Replace latin letters with extensions with their respective base forms}
+\title{Unicode to ASCII transliteration}
 \usage{
 str_to_ascii(.str, .repl_non_ascii = "")
 }
 \arguments{
-\item{.str}{...}
+\item{.str}{Character vector to be transliterated}
 
-\item{.repl_non_ascii}{..}
+\item{.repl_non_ascii}{Value to replace non-transliterable characters with. Set to \code{NULL} to keep them.}
 }
 \value{
-\code{str_to_ascii} - returns a ...
+\code{str_to_ascii} - Returns the transliterated character vector
 }
 \description{
-\code{str_to_ascii} - Replace all cardinal or ordinal numbers in a character vector with generic tags.
+\code{str_to_ascii} - Converts Unicode characters to their best ASCII representation using ICU Transliterators and some basic transformations.
 }
 \examples{
 ## str_to_ascii EXAMPLE:

@@ -1,10 +1,10 @@
-#' Replace latin letters with extensions with their respective base forms
+#' Unicode to ASCII transliteration
 #'
-#' \code{str_to_ascii} - Replace all cardinal or ordinal numbers in a character vector with generic tags.
+#' \code{str_to_ascii} - Converts Unicode characters to their best ASCII representation using ICU Transliterators and some basic transformations.
 #'
-#' @param .str ...
-#' @param .repl_non_ascii ..
-#' @return \code{str_to_ascii} - returns a ...
+#' @param .str Character vector to be transliterated
+#' @param .repl_non_ascii Value to replace non-transliterable characters with. Set to \code{NULL} to keep them.
+#' @return \code{str_to_ascii} - Returns the transliterated character vector
 #' @rdname str_to_ascii
 #' @export
 #' @examples
@@ -15,28 +15,25 @@ str_to_ascii <- function(.str, .repl_non_ascii=""){
 
   .str <-
     .str %>%
-    stringi::stri_replace_all_fixed(
-      table_char_html$pattern_fixed, table_char_html$replacement,
-      vectorize_all=FALSE
+    stringi::stri_replace_all_charclass(
+      pattern="[\u0022\u0027\u0060\u00B4\u2018\u2019\u201C\u201D]",
+      replacement="'"
     ) %>%
     stringi::stri_replace_all_charclass(
-      "[\u0022\u0027\u0060\u00B4\u2018\u2019\u201C\u201D]", "'"
-    ) %>%
-    stringi::stri_replace_all_charclass(
-      "[\u2013\u2014\u2212\u002D]", "-"
+      pattern="[\u2013\u2014\u2212\u002D]", replacement="-"
     ) %>%
     stringi::stri_trans_general(
       id="Fullwidth-Halfwidth; Any-Latin; Latin-ASCII"
     )
 
   if(!rlang::is_null(.repl_non_ascii)){
-    .str <- iconv(.str, to="ASCII", sub=.repl_non_ascii)
+    .str <- stringi::stri_replace_all_charclass(
+      .str, pattern="[^[:ascii:]]", replacement=.repl_non_ascii
+    )
   }
 
   return(.str)
 
 }
-
-# str_to_ascii("What’s new about that? There could have been done something about it years ago while you were VP under @BarackObama")
 
 # globalVariables(c("code_hex", "description", "pattern", "replacement"))

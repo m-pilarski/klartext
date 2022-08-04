@@ -2,25 +2,32 @@
 % Please edit documentation in R/str_unify_spacing.R
 \name{str_unify_spacing}
 \alias{str_unify_spacing}
-\title{Filter Rows That Contain Markers}
+\title{Whitespace normalization}
 \usage{
 str_unify_spacing(.str)
 }
 \arguments{
-\item{.str}{...}
+\item{.str}{Character vector to be normalized}
 }
 \value{
-\code{str_unify_spacing} - returns a ...
+\code{str_unify_spacing} - Returns the normalized character vector
 }
 \description{
-\code{str_unify_spacing} - Convert all Emojis to some ...
+\code{str_unify_spacing} - Normalizes whitespace by replacing everything
+between words and punctuation characters with single space characters. The
+identification of boundaries is performed using ICU Breakiterators with added
+exceptions for #hashtags, @screen_names, URLs and <KLARTAGS> (as created by
+other functions of this package)
 }
 \examples{
 ## str_unify_spacing EXAMPLE:
 
 str_unify_spacing(c(
-  "This    @test_at that\n #test_hash",
-  "<test-no-tag> <TEST_TAG> test!?!?",
-  "An URL www.example.com/test ."
+  "This  @screen_name that\n #hash_tag, #123",
+  "<not-A_KLARTAG> <A_KLARTAG>!?!? An URL",
+  "www.example.com/test ..."
 ))
+}
+\references{
+https://www.unicode.org/reports/tr29/#Word_Boundaries
 }

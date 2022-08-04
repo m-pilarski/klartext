@@ -2,9 +2,16 @@
 #' @export
 magrittr::`%>%`
 
+
 #' @importFrom stringi %s+%
 #' @export
 stringi::`%s+%`
+
+
+#' @importFrom stringr str_c
+#' @export
+stringr::str_c
+
 
 #' @noRd
 format_klartag <- function(
@@ -27,6 +34,7 @@ format_klartag <- function(
   return(.tag)
 
 }
+
 
 #' @noRd
 install_num2words <- function(.method="auto", .conda="auto"){

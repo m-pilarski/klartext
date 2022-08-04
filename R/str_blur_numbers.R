@@ -76,41 +76,44 @@ make_cardinal_regex <- function(.lang="en"){
 
   .c_1_9_reg <- "(?:f(?:ive|our)|s(?:even|ix)|t(?:hree|wo)|(?:ni|o)ne|eight)"
 
-  .c_10_19_reg <- paste0(
+  .c_10_19_reg <- str_c(
     "(?:(?:(?:s(?:even|ix)|f(?:our|if)|nine)te|e(?:ighte|lev))en|",
     "t(?:(?:hirte)?en|welve))"
   )
 
   .c_2_9x10_reg <- "(?:(?:s(?:even|ix)|t(?:hir|wen)|f(?:if|or)|eigh|nine)ty)"
 
-  .c_1_99_reg <- paste0(
+  .c_1_99_reg <- str_c(
     "(?:", .c_2_9x10_reg, " ", .c_1_9_reg, "?|", .c_10_19_reg, "|",
     .c_1_9_reg, ")"
   )
 
-  .c_1_999_reg <- paste0(
+  .c_1_999_reg <- str_c(
     "(?:", .c_1_9_reg, " hundred(?: (?:and )?(?:", .c_1_99_reg, "))?|",
     .c_1_99_reg, ")"
   )
 
-  .c_1_9999_reg <- paste0(
+  .c_1_9999_reg <- str_c(
     "(?:", .c_1_9_reg, " thousand(?: (?:and )?(?:", .c_1_999_reg, "))?|",
     .c_1_999_reg, ")"
   )
 
   .c_big_l_reg <- "(?:hundred|thousand|(?:m|b|tr)illion)"
 
-  .c_big_s_reg <- paste0(
+  .c_big_s_reg <- str_c(
     "(?:(?:k|thsnd|m(?:ill?|ln)?|b(?:ill?|l?n)?|t(?:r(?:ill?|l?n))?)\\.?)"
   )
 
-  .c_start_reg <- paste0(
+  .c_start_reg <- str_c(
     "(?:zero|", .c_1_9999_reg, "|", .c_big_l_reg, "s?)"
   )
 
-  .c_rest_reg <- paste0("(?:", .c_start_reg, "|", .c_big_s_reg, ")")
+  .c_rest_reg <- str_c("(?:", .c_start_reg, "|", .c_big_s_reg, ")")
 
-  .c_full_reg <- paste0("(?:", .c_start_reg, "|", "-? ?(?:[[:digit:]][[:digit:] .,]*)?[[:digit:]])(?:", .c_rest_reg, ")*s?")
+  .c_full_reg <- str_c(
+    "(?:", .c_start_reg, "|-? ?(?:[[:digit:]][[:digit:] .,]*)?[[:digit:]])(?:",
+    .c_rest_reg, ")*s?"
+  )
 
   return(.c_full_reg)
 
@@ -133,12 +136,12 @@ make_ordinal_regex <- function(.lang="en"){
   .ordi_full <- c(
     .ordi_base, "tenth", "eleventh", "twelfth", "thirteenth", "fourteenth",
     "fifteenth", "sixteenth", "seventeenth", "eighteenth", "nineteenth",
-    paste0(rep(.ordi_20_90_pre, each=10), c("ieth", paste0("y ", .ordi_base))),
+    str_c(rep(.ordi_20_90_pre, each=10), c("ieth", str_c("y ", .ordi_base))),
     "hundredth"
   )
 
-  .reg_ordi <- paste0(
-    "(?:", paste(.ordi_full, collapse='|'), ")|",
+  .reg_ordi <- str_c(
+    "(?:", str_c(.ordi_full, collapse='|'), ")|",
     "(?:[0-9]*(?:1st|2nd|3rd|[0456789]th))"
   )
 
@@ -148,12 +151,12 @@ make_ordinal_regex <- function(.lang="en"){
 
 #' @noRd
 make_regex_excl_substr <- function(.pattern){
-  paste0("(?<=(^| ))", .pattern, "(?=( |[[:punct:]]|$))")
+  str_c("(?<=(^| ))", .pattern, "(?=( |[[:punct:]]|$))")
 }
 
 #' @noRd
 make_regex_excl_hash_at <- function(.pattern){
-  paste0("(?<!(?:^| )[@#][a-z0-9_]{0,279})", .pattern)
+  str_c("(?<!(?:^| )[@#][a-z0-9_]{0,279})", .pattern)
 }
 
 #' @noRd

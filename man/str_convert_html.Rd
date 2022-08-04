@@ -2,21 +2,25 @@
 % Please edit documentation in R/str_convert_html.R
 \name{str_convert_html}
 \alias{str_convert_html}
-\title{Filter Rows That Contain Markers}
+\title{Convert HTML character references to Unicode characters}
 \usage{
 str_convert_html(.str)
 }
 \arguments{
-\item{.str}{...}
+\item{.str}{Character vector to be converted}
 }
 \value{
-\code{str_convert_html} - returns a ...
+\code{str_convert_html} - Returns the converted character vector
 }
 \description{
-\code{str_convert_html} - Convert all Emojis to some ...
+\code{str_convert_html} - Convert HTML character references to Unicode
+characters
 }
 \examples{
 ## str_convert_html EXAMPLE:
 
 str_convert_html("&gt; &amp; &lt;")
+}
+\references{
+https://www.w3.org/TR/REC-html40/sgml/entities.html
 }

@@ -5,6 +5,7 @@
 \alias{reexports}
 \alias{\%>\%}
 \alias{\%s+\%}
+\alias{str_c}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -15,5 +16,7 @@ below to see their documentation.
   \item{magrittr}{\code{\link[magrittr:pipe]{\%>\%}}}
 
   \item{stringi}{\code{\link[stringi:operator_add]{\%s+\%}}}
+
+  \item{stringr}{\code{\link[stringr]{str_c}}}
 }}
 

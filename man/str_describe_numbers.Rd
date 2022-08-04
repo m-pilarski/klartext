@@ -22,9 +22,11 @@ str_describe_numbers(.str, .lang = "en", .ordinal = TRUE)
 \examples{
 ## str_describe_numbers EXAMPLE:
 
+\dontrun{
 str_describe_numbers(c(
   "The 2020 United States presidential election",
   "was the 59th quadrennial presidential election",
   "held on Tuesday, November 3, 2020"
 ))
+}
 }
