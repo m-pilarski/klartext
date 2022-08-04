@@ -20,14 +20,7 @@ str_describe_numbers <- function(
   .str, .lang="en", .ordinal=TRUE
 ){
 
-  if(!reticulate::py_module_available("num2words")){
-    stop(
-      "The required python-package \"num2words\" is not installed in the ",
-      "environment currently used by reticulate. Run install_num2words() or ",
-      "install it manually."
-    )
-  }
-
+  check_num2words()
   stopifnot(.lang %in% c("en"))
 
   .str %>%
