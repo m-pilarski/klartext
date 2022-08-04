@@ -75,4 +75,39 @@ str_describe_numbers <- function(
 
 }
 
-globalVariables(c(".do_install"))
+
+#' @noRd
+check_num2words <- function(){
+
+  .py_path <- reticulate::py_discover_config()$python
+
+  .num2words_installed <-
+    reticulate::py_list_packages(python=.py_path) %>%
+    dplyr::filter(package == "num2words")
+
+  if(nrow(.num2words_installed) == 0){
+    message(
+      "The python-package \"num2words\" is not installed in the environment ",
+      "currently used by reticulate."
+    )
+    .do_install <- try(utils::askYesNo(
+      msg="Dou you want to install it?", default=FALSE
+    ))
+    if(isTRUE(.do_install)){
+      reticulate::py_install("num2words==0.5.10", pip=TRUE)
+    }else{
+      stop("The package was not installed.")
+    }
+  }else if(.num2words_installed$version != "0.5.10"){
+    message(
+      "The python-package \"num2words\" is installed but the version does not ",
+      "match the tested one (0.5.10). If you're running into problems, ",
+      "consider reinstalling it by running:\n",
+      "reticulate::py_install(\"num2words==0.5.10\", ignore_installed=TRUE)"
+    )
+  }
+
+}
+
+
+globalVariables(c("package", ".do_install"))

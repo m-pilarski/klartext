@@ -34,21 +34,3 @@ format_klartag <- function(
   return(.tag)
 
 }
-
-
-#' @noRd
-install_num2words <- function(.method="auto", .conda="auto"){
-
-  # .py_env <- Sys.getenv("RETICULATE_PYTHON_ENV")
-  # .py_env <- dplyr::if_else(.py_env == "", "r-reticulate", .py_env)
-  # .py_pkg <- reticulate::py_list_packages(envname=.py_env, type=.method)$package
-  #
-  # if(!"num2words" %in% .py_pkg){
-  #   reticulate::py_install(
-  #     "num2words", envname=.py_env, method=.method, conda=.conda
-  #   )
-  # }
-
-  reticulate::py_install("num2words", method=.method, conda=.conda)
-
-}
