@@ -1,0 +1,105 @@
+#' @noRd
+pattern_reg_url <-
+  "\\b((http|ftp)s?://|mailto:|www\\.)" %s+%
+  "[^[:space:]/$.?#][[:alnum:]-._~:/?#\\[\\]@!$&'()*+%,;=]+[^\\.]\\b"
+
+
+#' @noRd
+pattern_reg_screen_name <-
+  "(?<![[:alnum:]&])@[[:alnum:]_]+(?=[^[:alnum:]_]|$)"
+
+
+#' @noRd
+pattern_reg_hashtag <-
+  "(?<![[:alnum:]&])#[[:alpha:]][[:alnum:]_]*(?=[^[:alnum:]_]|$)"
+
+
+#' @noRd
+pattern_reg_klartag <-
+  "\\<([A-Z0-9_]+?)\\>"
+
+
+#' @noRd
+make_pattern_reg_cardinal <- function(.lang="en", .space="[ -]*"){
+
+  stopifnot(.lang=="en")
+
+  .c_1_9_reg <- "(?:f(?:ive|our)|s(?:even|ix)|t(?:hree|wo)|(?:ni|o)ne|eight)"
+
+  .c_10_19_reg <- str_c(
+    "(?:(?:(?:s(?:even|ix)|f(?:our|if)|nine)te|e(?:ighte|lev))en|",
+    "t(?:(?:hirte)?en|welve))"
+  )
+
+  .c_2_9x10_reg <- "(?:(?:s(?:even|ix)|t(?:hir|wen)|f(?:if|or)|eigh|nine)ty)"
+
+  .c_1_99_reg <- str_c(
+    "(?:", .c_2_9x10_reg, .space, .c_1_9_reg, "?|", .c_10_19_reg, "|",
+    .c_1_9_reg, ")"
+  )
+
+  .c_1_999_reg <- str_c(
+    "(?:", .c_1_9_reg, .space, "hundred(?:", .space, "(?:and", .space, ")?(?:",
+    .c_1_99_reg, "))?|", .c_1_99_reg, ")"
+  )
+
+  .c_1_9999_reg <- str_c(
+    "(?:", .c_1_9_reg, .space, "thousand(?:", .space, "(?:and", .space, ")?(?:",
+    .c_1_999_reg, "))?|", .c_1_999_reg, ")"
+  )
+
+  .c_big_l_reg <- "(?:hundred|thousand|(?:m|b|tr)illion)"
+
+  .c_big_s_reg <- str_c(
+    "(?:(?:k|thsnd|m(?:ill?|ln)?|b(?:ill?|l?n)?|t(?:r(?:ill?|l?n))?)\\.?)"
+  )
+
+  .c_start_reg <- str_c(
+    "(?:zero|", .c_1_9999_reg, "|", .c_big_l_reg, "s?)"
+  )
+
+  .c_rest_reg <- str_c("(?:", .c_start_reg, "|", .c_big_s_reg, ")")
+
+  .c_full_reg <- str_c(
+    "(?:", .c_start_reg, "|-? ?(?:[0-9][0-9 .,]*)?[0-9])(?:", .c_rest_reg,
+    ")*s?"
+  )
+
+  return(.c_full_reg)
+
+}
+
+
+#' @noRd
+make_pattern_reg_ordinal <- function(.lang="en", .space="[ -]*"){
+
+  stopifnot(.lang=="en")
+
+  .ordi_base <- c(
+    "first", "second", "third", "fourth", "fifth", "sixth", "seventh",
+    "eighth", "ninth"
+  )
+
+  .ordi_20_90_pre <- c(
+    "twent", "thirt", "fort", "fift", "sixt", "sevent", "eight", "ninet"
+  )
+
+  .ordi_20_99 <- str_c(
+    rep(.ordi_20_90_pre, each=10), c("ieth", str_c("y", .space, .ordi_base))
+  )
+
+  .ordi_full <- c(
+    .ordi_base, "tenth", "eleventh", "twelfth", "thirteenth", "fourteenth",
+    "fifteenth", "sixteenth", "seventeenth", "eighteenth", "nineteenth",
+    .ordi_20_99, "hundredth"
+  )
+
+  .reg_ordi <- str_c(
+    "(?:", str_c(.ordi_full, collapse='|'), ")|",
+    "(?:[0-9]*(?:1st|2nd|3rd|[0456789]th))"
+  )
+
+  return(.reg_ordi)
+
+}
+

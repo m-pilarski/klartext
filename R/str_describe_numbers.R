@@ -21,6 +21,7 @@ str_describe_numbers <- function(
 ){
 
   check_num2words()
+  stopifnot(is.character(.str))
   stopifnot(.lang %in% c("en"))
 
   .str %>%
@@ -31,8 +32,7 @@ str_describe_numbers <- function(
     dplyr::mutate(dplyr::across(tok, function(..tok){
 
       ..tok_is_number <- stringi::stri_detect_regex(
-        ..tok,
-        "^(?:([0-9]*[.,])*[0-9]+|(?:[0-9]*(?:1st|2nd|3rd|[0456789]th)))$"
+        ..tok, "^(?:([0-9]*[.,])*[0-9]+|(?:[0-9]*(?:1st|2nd|3rd|[0456789]th)))$"
       )
       ..tok_is_ordinal <- dplyr::if_else(
         ..tok_is_number, stringi::stri_detect_regex(..tok, "(?:st|nd|rd|th)$"),
@@ -70,7 +70,7 @@ str_describe_numbers <- function(
 
 
 #' @noRd
-check_num2words <- function(){
+check_num2words <- function(.do_install){
 
   .py_path <- reticulate::py_discover_config()$python
 
@@ -83,9 +83,11 @@ check_num2words <- function(){
       "The python-package \"num2words\" is not installed in the environment ",
       "currently used by reticulate."
     )
-    .do_install <- try(utils::askYesNo(
-      msg="Dou you want to install it?", default=FALSE
-    ))
+    if(missing(.do_install)){
+      .do_install <- try(utils::askYesNo(
+        msg="Dou you want to install it?", default=FALSE
+      ))
+    }
     if(isTRUE(.do_install)){
       reticulate::py_install("num2words==0.5.10", pip=TRUE)
     }else{

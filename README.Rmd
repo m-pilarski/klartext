@@ -35,14 +35,22 @@ devtools::install_github("m-pilarski/klartext")
 
 ## Usage
 
+```{r, echo=FALSE, message=FALSE}
+
+reticulate::use_condaenv("r-reticulate")
+klartext:::check_num2words(.do_install=TRUE)
+
+```
+
+
 ```{r}
 
 library(klartext)
 
-example_emoji <- "😀😆😡💀"
-str_convert_emoji(example_emoji)
-str_convert_emoji(example_emoji, .resolution="subgroup")
-str_convert_emoji(example_emoji, .resolution="group")
+example_emoji <- "😀 😆 😡 💀"
+str_describe_emoji(example_emoji, .resolution="name")
+str_describe_emoji(example_emoji, .resolution="subgroup")
+str_describe_emoji(example_emoji, .resolution="group")
 
 
 str_to_ascii("Ŧêśť – - — ⅛ … ÆÄöÜ ?¿")

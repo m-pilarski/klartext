@@ -15,18 +15,16 @@
 #' ## str_unify_spacing EXAMPLE:
 #'
 #' str_unify_spacing(c(
-#'   "This  @screen_name that\n #hash_tag, #123",
+#'   "This  @screen_name that\n #hash_tag, #1",
 #'   "<not-A_KLARTAG> <A_KLARTAG>!?!? An URL",
 #'   "www.example.com/test ..."
 #' ))
 str_unify_spacing <- function(.str){
 
-  .tok_lock_regex <-
-    "\\<([A-Z0-9_]+?)\\>|" %s+%
-    "(?<![[:alnum:]&])@[[:alnum:]_]+(?=[^[:alnum:]_]|$)|" %s+%
-    "(?<![[:alnum:]&])#[[:alpha:]][[:alnum:]_]*(?=[^[:alnum:]_]|$)|" %s+%
-    "\\b((http|ftp)s?://|mailto:|www\\.)[^\\s/$.?#][[[:alnum:]]-._~:/?#" %s+%
-    "\\[\\]@!$&'()*+%,;=]+[^\\.]\\b"
+  .tok_lock_regex <- str_c(
+    pattern_reg_url, pattern_reg_screen_name, pattern_reg_hashtag,
+    pattern_reg_klartag, sep="|"
+  )
 
   .str %>%
     stringi::stri_replace_all_regex(.tok_lock_regex, " $0 ") %>%

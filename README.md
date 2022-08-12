@@ -26,13 +26,13 @@ devtools::install_github("m-pilarski/klartext")
 
 library(klartext)
 
-example_emoji <- "😀😆😡💀"
-str_convert_emoji(example_emoji)
-#> [1] "<EMO_GRINNING_FACE><EMO_GRINNING_SQUINTING_FACE><EMO_POUTING_FACE><EMO_SKULL>"
+example_emoji <- "😀 😆 😡 💀"
+str_convert_emoji(example_emoji, .resolution="name")
+#> [1] "<EMO_GRINNING_FACE> <EMO_GRINNING_SQUINTING_FACE> <EMO_POUTING_FACE> <EMO_SKULL>"
 str_convert_emoji(example_emoji, .resolution="subgroup")
-#> [1] "<EMO_FACE_SMILING><EMO_FACE_SMILING><EMO_FACE_NEGATIVE><EMO_FACE_NEGATIVE>"
+#> [1] "<EMO_FACE_SMILING> <EMO_FACE_SMILING> <EMO_FACE_NEGATIVE> <EMO_FACE_NEGATIVE>"
 str_convert_emoji(example_emoji, .resolution="group")
-#> [1] "<EMO_SMILEYS_EMOTION><EMO_SMILEYS_EMOTION><EMO_SMILEYS_EMOTION><EMO_SMILEYS_EMOTION>"
+#> [1] "<EMO_SMILEYS_EMOTION> <EMO_SMILEYS_EMOTION> <EMO_SMILEYS_EMOTION> <EMO_SMILEYS_EMOTION>"
 
 
 str_to_ascii("Ŧêśť – - — ⅛ … ÆÄöÜ ?¿")
@@ -60,6 +60,8 @@ str_describe_numbers(c(
   "59th quadrennial presidential election held on Tuesday,",
   "November 3rd, 2020."
 ))
+#> The python-package "num2words" is not installed in the environment currently used by reticulate.
+#> Dou you want to install it? (Yes/no/cancel)
 #> [1] "The two thousand and twenty United States presidential election was the"
 #> [2] "fifty-ninth quadrennial presidential election held on Tuesday,"         
 #> [3] "November third, two thousand and twenty."

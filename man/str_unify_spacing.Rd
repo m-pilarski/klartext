@@ -23,7 +23,7 @@ other functions of this package)
 ## str_unify_spacing EXAMPLE:
 
 str_unify_spacing(c(
-  "This  @screen_name that\n #hash_tag, #123",
+  "This  @screen_name that\n #hash_tag, #1",
   "<not-A_KLARTAG> <A_KLARTAG>!?!? An URL",
   "www.example.com/test ..."
 ))
