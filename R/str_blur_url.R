@@ -16,20 +16,11 @@
 #'   "presidential election, held on Tuesday, November 3, 2020"
 #' ))
 str_blur_url <- function(
-  .str, .pattern_reg_url=klartext::pattern_reg_url, .replacement_url="<URL>"
+  .str, .pattern_reg_url=pattern_reg_url, .replacement_url="<URL>"
 ){
-
-  stringi::stri_replace_all_regex(.str, .pattern_reg_url, .replacement_url)
-
+  stringi::stri_replace_all_regex(
+    str=.str,
+    pattern=.pattern_reg_url,
+    replacement=.replacement_url
+  )
 }
-
-#' Dictionary for replacing latin letters with extensions with their respective base forms
-#'
-#' Data from ...
-#'
-#' @docType data
-#' @usage data(pattern_reg_url)
-#' @format Named character vector where the names are regular expressions and values are regular latin characters without extensions
-#' @keywords datasets
-#' @rdname pattern_reg_url
-"pattern_reg_url"

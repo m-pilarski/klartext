@@ -43,7 +43,7 @@ klartext:::check_num2words(.do_install=TRUE)
 ```
 
 
-```{r}
+```{r, message=FALSE}
 
 library(klartext)
 

@@ -6,7 +6,7 @@
 \usage{
 str_blur_url(
   .str,
-  .pattern_reg_url = klartext::pattern_reg_url,
+  .pattern_reg_url = pattern_reg_url,
   .replacement_url = "<URL>"
 )
 }
