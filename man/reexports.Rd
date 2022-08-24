@@ -6,6 +6,7 @@
 \alias{\%>\%}
 \alias{\%s+\%}
 \alias{str_c}
+\alias{str_to_lower}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -17,6 +18,6 @@ below to see their documentation.
 
   \item{stringi}{\code{\link[stringi:operator_add]{\%s+\%}}}
 
-  \item{stringr}{\code{\link[stringr]{str_c}}}
+  \item{stringr}{\code{\link[stringr]{str_c}}, \code{\link[stringr:case]{str_to_lower}}}
 }}
 

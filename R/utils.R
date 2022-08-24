@@ -12,6 +12,10 @@ stringi::`%s+%`
 #' @export
 stringr::str_c
 
+#' @importFrom stringr str_to_lower
+#' @export
+stringr::str_to_lower
+
 
 #' @noRd
 format_klartag <- function(

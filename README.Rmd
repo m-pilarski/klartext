@@ -42,7 +42,6 @@ klartext:::check_num2words(.do_install=TRUE)
 
 ```
 
-
 ```{r, message=FALSE}
 
 library(klartext)
@@ -61,11 +60,13 @@ str_unify_spacing(c(
   "<TEST_TAG> test!?!? An URL www.example.com/test ."
 ))
 
+
 str_blur_numbers(c(
   "The two thousand and twenty United States presidential",
   "election was the 59th quadrennial presidential election",
   "held on Tuesday, November third, 2020. #2020"
 ))
+
 
 str_describe_numbers(c(
   "The 2020 United States presidential election was the", 
