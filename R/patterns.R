@@ -65,7 +65,7 @@ make_pattern_reg_cardinal <- function(.lang="en", .space="[ -]*"){
     ")*s?"
   )
 
-  return(.c_full_reg)
+  return(str_c("(?<=(^| ))", .c_full_reg, "(?=( |[[:punct:]]|$))"))
 
 }
 
@@ -99,7 +99,7 @@ make_pattern_reg_ordinal <- function(.lang="en", .space="[ -]*"){
     "(?:[0-9]*(?:1st|2nd|3rd|[0456789]th))"
   )
 
-  return(.reg_ordi)
+  return(str_c("(?<=(^| ))", .reg_ordi, "(?=( |[[:punct:]]|$))"))
 
 }
 

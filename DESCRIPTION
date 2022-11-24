@@ -11,4 +11,4 @@ LazyData: true
 Depends: R (>= 3.5.0)
 Imports: 
   stringi, stringr, dplyr, tidyr, tibble, purrr, magrittr, rlang, reticulate
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.2

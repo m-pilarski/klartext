@@ -26,8 +26,8 @@ str_blur_numbers <- function(
 ){
 
   stopifnot(any(is.character(.rep_cardinal), is.character(.rep_ordinal)))
-  stopifnot(is.character(.rep_cardinal) | is.null(.rep_cardinal))
-  stopifnot(is.character(.rep_ordinal) | is.null(.rep_ordinal))
+  stopifnot(any(is.character(.rep_cardinal), is.null(.rep_cardinal)))
+  stopifnot(any(is.character(.rep_ordinal), is.null(.rep_ordinal)))
 
   if(is.character(.rep_ordinal)){
 
