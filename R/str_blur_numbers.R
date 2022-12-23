@@ -22,7 +22,7 @@
 #' ))
 str_blur_numbers <- function(
   .str, .rep_cardinal="<NUM_CARDI>", .rep_ordinal="<NUM_ORDI>", .lang="en",
-  .excl_substr=TRUE, .excl_hash_at=TRUE, .relax_space=TRUE
+  .relax_space=TRUE
 ){
 
   stopifnot(any(is.character(.rep_cardinal), is.character(.rep_ordinal)))

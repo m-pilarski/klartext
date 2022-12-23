@@ -84,9 +84,13 @@ make_pattern_reg_ordinal <- function(.lang="en", .space="[ -]*"){
     "twent", "thirt", "fort", "fift", "sixt", "sevent", "eight", "ninet"
   )
 
-  .ordi_20_99 <- str_c(
-    rep(.ordi_20_90_pre, each=10), c("ieth", str_c("y", .space, .ordi_base))
-  )
+  .ordi_20_99 <-
+    tidyr::expand_grid(
+     start=.ordi_20_90_pre,
+     end=c("ieth", str_c("y", .space, .ordi_base))
+    ) %>%
+    dplyr::transmute(str_c(start, end)) %>%
+    dplyr::pull()
 
   .ordi_full <- c(
     .ordi_base, "tenth", "eleventh", "twelfth", "thirteenth", "fourteenth",
@@ -102,4 +106,3 @@ make_pattern_reg_ordinal <- function(.lang="en", .space="[ -]*"){
   return(str_c("(?<=(^| ))", .reg_ordi, "(?=( |[[:punct:]]|$))"))
 
 }
-
