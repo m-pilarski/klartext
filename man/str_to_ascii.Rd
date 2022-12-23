@@ -4,7 +4,7 @@
 \alias{str_to_ascii}
 \title{Unicode to ASCII transliteration}
 \usage{
-str_to_ascii(.str, .repl_non_ascii = "")
+str_to_ascii(.str, .parse_html_chars = TRUE, .repl_no_trans = "")
 }
 \arguments{
 \item{.str}{Character vector to be transliterated}
@@ -20,5 +20,5 @@ str_to_ascii(.str, .repl_non_ascii = "")
 \examples{
 ## str_to_ascii EXAMPLE:
 
-str_to_ascii(.str="Ŧêśť")
+str_to_ascii(.str="¿Ŧêśť &amp; 法?")
 }

@@ -29,32 +29,16 @@ str_blur_numbers <- function(
   stopifnot(any(is.character(.rep_cardinal), is.null(.rep_cardinal)))
   stopifnot(any(is.character(.rep_ordinal), is.null(.rep_ordinal)))
 
-  if(is.character(.rep_ordinal)){
-
-    .ord_regex <- make_pattern_reg_ordinal(.lang)
-
-    if(isTRUE(.excl_substr)){
-      .ord_regex <- make_regex_excl_substr(.ord_regex)
-    }else if(isTRUE(.excl_hash_at)){
-      .ord_regex <- make_regex_excl_hash_at(.ord_regex)
-    }
-
-    .str <- stringi::stri_replace_all_regex(.str, .ord_regex, .rep_ordinal)
-
+  if(isTRUE(is.character(.rep_ordinal))){
+    .str <- stringi::stri_replace_all_regex(
+      .str, make_pattern_reg_ordinal(.lang), .rep_ordinal
+    )
   }
 
-  if(is.character(.rep_cardinal)){
-
-    .card_regex <- make_pattern_reg_cardinal(.lang)
-
-    if(isTRUE(.excl_substr)){
-      .card_regex <- make_regex_excl_substr(.card_regex)
-    }else if(isTRUE(.excl_hash_at)){
-      .card_regex <- make_regex_excl_hash_at(.card_regex)
-    }
-
-    .str <- stringi::stri_replace_all_regex(.str, .card_regex, .rep_cardinal)
-
+  if(isTRUE(is.character(.rep_cardinal))){
+    .str <- stringi::stri_replace_all_regex(
+      .str, make_pattern_reg_cardinal(.lang), .rep_cardinal
+    )
   }
 
   return(.str)
