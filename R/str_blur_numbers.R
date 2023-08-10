@@ -24,7 +24,9 @@ str_blur_numbers <- function(
   .str, .rep_cardinal="<NUM_CARDI>", .rep_ordinal="<NUM_ORDI>", .lang="en",
   .relax_space=TRUE
 ){
-
+  
+  .str_names <- names(.str)
+  
   stopifnot(any(is.character(.rep_cardinal), is.character(.rep_ordinal)))
   stopifnot(any(is.character(.rep_cardinal), is.null(.rep_cardinal)))
   stopifnot(any(is.character(.rep_ordinal), is.null(.rep_ordinal)))
@@ -40,6 +42,8 @@ str_blur_numbers <- function(
       .str, make_pattern_reg_cardinal(.lang), .rep_cardinal
     )
   }
+  
+  names(.str) <- .str_names
 
   return(.str)
 

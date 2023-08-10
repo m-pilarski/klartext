@@ -18,9 +18,10 @@
 str_blur_url <- function(
   .str, .pattern_reg_url=pattern_reg_url, .replacement_url="<URL>"
 ){
-  stringi::stri_replace_all_regex(
-    str=.str,
-    pattern=.pattern_reg_url,
-    replacement=.replacement_url
-  )
+  .str |> 
+    stringi::stri_replace_all_regex(
+      pattern=.pattern_reg_url,
+      replacement=.replacement_url
+    ) |> 
+    rlang::set_names(names(.str))
 }

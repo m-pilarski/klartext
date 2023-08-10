@@ -16,9 +16,10 @@
 str_remove_reply_mentions <- function(
   .str
 ){
-  stringi::stri_replace_all_regex(
-    str=.str,
-    pattern=str_c("(?:", pattern_reg_screen_name, " )+"),
-    replacement=""
-  )
+  .str |> 
+    stringi::stri_replace_all_regex(
+      pattern=str_c("(?:", pattern_reg_screen_name, " )+"),
+      replacement=""
+    ) |> 
+    rlang::set_names(names(.str))
 }

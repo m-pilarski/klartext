@@ -32,7 +32,8 @@ str_to_ascii <- function(.str, .parse_html_chars=TRUE, .repl_no_trans=""){
       rep_len(!rlang::is_null(.repl_no_trans), length(.str)),
       stringi::stri_replace_all_charclass,
       pattern="[^[:ascii:]]", replacement=.repl_no_trans
-    )
+    ) |> 
+    rlang::set_names(names(.str))
 
   return(.str)
 

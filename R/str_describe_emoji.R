@@ -17,7 +17,9 @@
 str_describe_emoji <- function(
   .str, .resolution="name"
 ){
-
+  
+  .str_names <- names(.str)
+  
   .resolution <- .resolution[1]
 
   .pattern <- klartext::table_char_emoji[["pattern_fixed"]]
@@ -27,10 +29,14 @@ str_describe_emoji <- function(
     purrr::chuck(stringi::stri_c("replacement_", .resolution)) %>%
     format_klartag(.str_prepend="emo")
 
-  stringi::stri_replace_all_fixed(
+  .str <- stringi::stri_replace_all_fixed(
     .str, pattern=.pattern, replacement=.replacement, vectorize_all=FALSE
   )
-
+  
+  names(.str) <- .str_names
+  
+  return(.str)
+  
 }
 
 globalVariables(c(
