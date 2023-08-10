@@ -15,7 +15,9 @@ str_to_ascii <- function(.str, .parse_html_chars=TRUE, .repl_no_trans=""){
 
   .str <-
     .str %>%
-    purrr::modify_if(.parse_html_chars, str_convert_html) %>%
+    purrr::modify_if(
+      rep_len(.parse_html_chars, length(.str)), str_convert_html
+    ) %>%
     stringi::stri_replace_all_charclass(
       pattern="[\u0022\u0027\u0060\u00B4\u2018\u2019\u201C\u201D]",
       replacement="'"
@@ -27,7 +29,8 @@ str_to_ascii <- function(.str, .parse_html_chars=TRUE, .repl_no_trans=""){
       id="Fullwidth-Halfwidth; Any-Latin; Latin-ASCII"
     ) %>%
     purrr::modify_if(
-      !rlang::is_null(.repl_no_trans), stringi::stri_replace_all_charclass,
+      rep_len(!rlang::is_null(.repl_no_trans), length(.str)),
+      stringi::stri_replace_all_charclass,
       pattern="[^[:ascii:]]", replacement=.repl_no_trans
     )
 
