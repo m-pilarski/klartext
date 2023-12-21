@@ -31,13 +31,25 @@ str_unify_spacing <- function(.str){
     stringi::stri_split_charclass("\\p{WHITE_SPACE}", omit_empty=TRUE) %>%
     tibble::as_tibble_col("tok") %>%
     tibble::rowid_to_column("doc_id") %>%
-    tidyr::unnest_longer(tok) %>%
+    # tidyr::unnest_longer(tok) %>%  this is extremely slow ... temp fix...
+    (\(.tbl){
+      tibble::tibble(
+        doc_id = rep(.tbl$doc_id, times=lengths(.tbl$tok)),
+        tok = unlist(.tbl$tok)
+      )
+    })() |> 
     dplyr::mutate(tok = dplyr::if_else(
       condition=stringi::stri_detect_regex(tok, .tok_lock_regex),
       true=as.list(tok),
       false=stringi::stri_split_boundaries(tok, type="word")
     )) %>%
-    tidyr::unnest_longer(tok) %>%
+    # tidyr::unnest_longer(tok) %>%
+    (\(.tbl){
+      tibble::tibble(
+        doc_id = rep(.tbl$doc_id, times=lengths(.tbl$tok)),
+        tok = unlist(.tbl$tok)
+      )
+    })() |> 
     dplyr::group_by(doc_id) %>%
     dplyr::summarize(
       str = stringi::stri_c(tok, collapse=" "), .groups="drop"
