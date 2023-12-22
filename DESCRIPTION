@@ -8,7 +8,10 @@ Description: Tools to clean and process text.
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 3.5.0)
-Imports: 
-  stringi, stringr, dplyr, tidyr, tibble, purrr, magrittr, rlang, reticulate
 RoxygenNote: 7.2.3
+Depends: 
+    R (>= 3.5.0)
+Imports: 
+    stringi, stringr, dplyr, tidyr, tibble, purrr, rlang
+Suggests: 
+    reticulate

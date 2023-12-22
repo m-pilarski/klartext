@@ -19,10 +19,11 @@
 # str_describe_numbers <- function(
 #   .str, .lang="en", .ordinal=TRUE
 # ){
-#
-#   check_num2words()
+#   
 #   stopifnot(is.character(.str))
 #   stopifnot(.lang %in% c("en"))
+#   rlang::check_installed("reticulate")
+#   check_num2words()
 #
 #   .str |>
 #     stringi::stri_split_boundaries(type="word") |>
@@ -81,7 +82,7 @@
 #'   check_num2words(.do_install=TRUE)
 #' }
 check_num2words <- function(.do_install){
-
+  
   .py_path <- reticulate::py_discover_config()$python
 
   .num2words_installed <-
