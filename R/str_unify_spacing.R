@@ -7,6 +7,7 @@
 #' other functions of this package)
 #'
 #' @param .str Character vector to be normalized
+#' @param .tok_lock_regex ...
 #' @return \code{str_unify_spacing} - Returns the normalized character vector
 #' @references https://www.unicode.org/reports/tr29/#Word_Boundaries
 #' @rdname str_unify_spacing
@@ -19,13 +20,15 @@
 #'   "<not-A_KLARTAG> <A_KLARTAG>!?!? An URL",
 #'   "www.example.com/test ..."
 #' ))
-str_unify_spacing <- function(.str){
+str_unify_spacing <- function(.str, .tok_lock_regex=NULL){
   
-  .tok_lock_regex <- str_c(
-    pattern_reg_url, pattern_reg_screen_name, pattern_reg_hashtag,
-    pattern_reg_klartag, sep="|"
-  )
-
+  if(is.null(.tok_lock_regex)){
+    .tok_lock_regex <- str_c(
+      pattern_reg_url, pattern_reg_screen_name, pattern_reg_hashtag,
+      pattern_reg_klartag, sep="|"
+    )
+  }
+  
   .str |>
     stringi::stri_replace_all_regex(.tok_lock_regex, " $0 ") |>
     stringi::stri_split_charclass("\\p{WHITE_SPACE}", omit_empty=TRUE) |>

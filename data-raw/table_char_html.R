@@ -2231,9 +2231,9 @@ table_char_html <-
     "&zwj;","\u200D",
     "&zwnj;","\u200C",
     "&not", "\u00AC"
-  ) %>%
-  matrix(ncol=2, byrow=TRUE) %>%
-  `colnames<-`(c("pattern_fixed", "replacement")) %>%
+  ) |>
+  matrix(ncol=2, byrow=TRUE) |>
+  `colnames<-`(c("pattern_fixed", "replacement")) |>
   as_tibble()
 
 usethis::use_data(table_char_html)

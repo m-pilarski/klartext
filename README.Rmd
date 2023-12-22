@@ -52,7 +52,7 @@ str_describe_emoji(example_emoji, .resolution="subgroup")
 str_describe_emoji(example_emoji, .resolution="group")
 
 
-str_to_ascii("Ŧêśť – - — ⅛ … ÆÄöÜ ?¿")
+str_convert_nonascii("Ŧêśť – - — ⅛ … ÆÄöÜ ?¿")
 
 
 str_unify_spacing(c(

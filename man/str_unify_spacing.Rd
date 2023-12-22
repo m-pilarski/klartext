@@ -4,10 +4,12 @@
 \alias{str_unify_spacing}
 \title{Whitespace normalization}
 \usage{
-str_unify_spacing(.str)
+str_unify_spacing(.str, .tok_lock_regex = NULL)
 }
 \arguments{
 \item{.str}{Character vector to be normalized}
+
+\item{.tok_lock_regex}{...}
 }
 \value{
 \code{str_unify_spacing} - Returns the normalized character vector

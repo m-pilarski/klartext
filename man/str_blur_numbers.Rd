@@ -9,8 +9,6 @@ str_blur_numbers(
   .rep_cardinal = "<NUM_CARDI>",
   .rep_ordinal = "<NUM_ORDI>",
   .lang = "en",
-  .excl_substr = TRUE,
-  .excl_hash_at = TRUE,
   .relax_space = TRUE
 )
 }
@@ -23,11 +21,11 @@ str_blur_numbers(
 
 \item{.lang}{...}
 
+\item{.relax_space}{...}
+
 \item{.excl_substr}{...}
 
 \item{.excl_hash_at}{...}
-
-\item{.relax_space}{...}
 }
 \value{
 \code{str_blur_numbers} - returns a ...

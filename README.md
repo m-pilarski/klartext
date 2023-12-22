@@ -45,7 +45,7 @@ str_describe_emoji(example_emoji, .resolution="group")
 #> [1] "<EMO_SMILEYS_EMOTION> <EMO_SMILEYS_EMOTION> <EMO_SMILEYS_EMOTION> <EMO_SMILEYS_EMOTION>"
 
 
-str_to_ascii("Ŧêśť – - — ⅛ … ÆÄöÜ ?¿")
+str_convert_nonascii("Ŧêśť – - — ⅛ … ÆÄöÜ ?¿")
 #> [1] "Test - - -  1/8 ... AEAoU ??"
 
 

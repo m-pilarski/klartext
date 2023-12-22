@@ -25,8 +25,8 @@ str_describe_emoji <- function(
   .pattern <- klartext::table_char_emoji[["pattern_fixed"]]
 
   .replacement <-
-    klartext::table_char_emoji %>%
-    purrr::chuck(stringi::stri_c("replacement_", .resolution)) %>%
+    klartext::table_char_emoji |>
+    purrr::chuck(stringi::stri_c("replacement_", .resolution)) |>
     format_klartag(.str_prepend="emo")
 
   .str <- stringi::stri_replace_all_fixed(

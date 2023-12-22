@@ -6,10 +6,10 @@
 #' @rdname get_table_char_unicode
 get_table_char_unicode <- function(){
 
-  "https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt" %>%
-    readr::read_lines(progress=FALSE) %>%
-    stringi::stri_subset_regex("^[:xdigit:]{4};[^;]+") %>%
-    paste(collapse="\n") %>%
+  "https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt" |>
+    readr::read_lines(progress=FALSE) |>
+    stringi::stri_subset_regex("^[:xdigit:]{4};[^;]+") |>
+    paste(collapse="\n") |>
     readr::read_delim(
       delim=";", trim_ws=TRUE,
       col_names=c("code_hex", "description", "general_category"),
@@ -34,10 +34,10 @@ get_table_char_latin <- function(){
     "(?:african|dotless|long|open|reversed|sharp )?" %s+%
     "([a-z])(?: with .+)?$"
 
-  get_table_char_unicode() %>%
+  get_table_char_unicode() |>
     dplyr::filter(
       stringi::stri_detect_regex(description, .latin_letter_regex)
-    ) %>%
+    ) |>
     dplyr::mutate(
       pattern = stringi::stri_unescape_unicode(paste0("\\u", code_hex)),
       description = stringi::stri_trans_tolower(description),
@@ -52,9 +52,9 @@ get_table_char_latin <- function(){
         case == "small" ~ stringi::stri_trans_tolower(letter),
         TRUE ~ NA_character_
       )
-    ) %>%
-    tidyr::drop_na(pattern, replacement) %>%
-    dplyr::group_by(pattern, replacement) %>%
+    ) |>
+    tidyr::drop_na(pattern, replacement) |>
+    dplyr::group_by(pattern, replacement) |>
     dplyr::summarize(
       description = paste(description, collapse=" OR "),
       .groups="drop"

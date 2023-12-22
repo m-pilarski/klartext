@@ -88,8 +88,8 @@ make_pattern_reg_ordinal <- function(.lang="en", .space="[ -]*"){
     tidyr::expand_grid(
      start=.ordi_20_90_pre,
      end=c("ieth", str_c("y", .space, .ordi_base))
-    ) %>%
-    dplyr::transmute(str_c(start, end)) %>%
+    ) |>
+    dplyr::transmute(str_c(start, end)) |>
     dplyr::pull()
 
   .ordi_full <- c(

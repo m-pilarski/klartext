@@ -24,11 +24,11 @@
 #   stopifnot(is.character(.str))
 #   stopifnot(.lang %in% c("en"))
 #
-#   .str %>%
-#     stringi::stri_split_boundaries(type="word") %>%
-#     tibble::as_tibble_col("tok") %>%
-#     tibble::rowid_to_column("doc_id") %>%
-#     tidyr::unnest_longer(tok) %>%
+#   .str |>
+#     stringi::stri_split_boundaries(type="word") |>
+#     tibble::as_tibble_col("tok") |>
+#     tibble::rowid_to_column("doc_id") |>
+#     tidyr::unnest_longer(tok) |>
 #     dplyr::mutate(dplyr::across(tok, function(..tok){
 #
 #       ..tok_is_number <- stringi::stri_detect_regex(
@@ -41,13 +41,13 @@
 #       ..tok_is_cardinal <- ..tok_is_number & !..tok_is_ordinal
 #
 #       ..tok_mod <-
-#         ..tok %>%
+#         ..tok |>
 #         purrr::modify_if(..tok_is_ordinal, function(..tok){
 #           ..klartext_num2words$num2words(
 #             stringi::stri_replace_all_regex(..tok, "[^0-9]+", ""),
 #             ordinal=TRUE, lang=.lang
 #           )
-#         }) %>%
+#         }) |>
 #         purrr::modify_if(..tok_is_cardinal, function(..tok){
 #           ..klartext_num2words$num2words(
 #             stringi::stri_replace_all_regex(..tok, ",", ""),
@@ -57,25 +57,35 @@
 #
 #       return(..tok_mod)
 #
-#     })) %>%
-#     dplyr::group_by(doc_id) %>%
+#     })) |>
+#     dplyr::group_by(doc_id) |>
 #     dplyr::summarize(
 #       str = stringi::stri_c(tok, collapse=""), .groups="drop"
-#     ) %>%
-#     tidyr::complete(doc_id = seq_along(.str), fill=list(str="")) %>%
-#     dplyr::pull(str) %>%
+#     ) |>
+#     tidyr::complete(doc_id = seq_along(.str), fill=list(str="")) |>
+#     dplyr::pull(str) |>
 #     rlang::set_names(names(.str))
 #
 # }
 
 
-#' @noRd
+
+#' check_num2words
+#'
+#' @param .do_install ...
+#'
+#' @return invisible(NULL)
+#'
+#' @examples
+#' if(FALSE){
+#'   check_num2words(.do_install=TRUE)
+#' }
 check_num2words <- function(.do_install){
 
   .py_path <- reticulate::py_discover_config()$python
 
   .num2words_installed <-
-    reticulate::py_list_packages(python=.py_path) %>%
+    reticulate::py_list_packages(python=.py_path) |>
     dplyr::filter(package == "num2words")
 
   if(nrow(.num2words_installed) == 0){
@@ -101,6 +111,8 @@ check_num2words <- function(.do_install){
       "reticulate::py_install(\"num2words==0.5.10\", ignore_installed=TRUE)"
     )
   }
+  
+  return(invisible(NULL))
 
 }
 
