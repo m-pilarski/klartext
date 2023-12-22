@@ -16,21 +16,11 @@ klartext is a collection of tools to clean and normalize text.
 
 ``` r
 
-# install.packages("devtools")
-devtools::install_github("m-pilarski/klartext")
+# install.packages("remotes")
+remotes::install_github("m-pilarski/klartext")
 ```
 
 ## Usage
-
-    #> Warning in reticulate::use_condaenv("r-reticulate"): multiple Conda environments found; the first-listed will be chosen.
-    #>           name
-    #> 2 r-reticulate
-    #> 6 r-reticulate
-    #> 9 r-reticulate
-    #>                                                                                                               python
-    #> 2                                                 /home/moritz/.local/share/r-miniconda/envs/r-reticulate/bin/python
-    #> 6 /home/moritz/Documents/Promotion/CommunityNotesEffectiveness/code/libs/proj_miniconda/envs/r-reticulate/bin/python
-    #> 9      /home/moritz/Documents/Promotion/track_annotated_tweets/code/libs/proj_miniconda/envs/r-reticulate/bin/python
 
 ``` r
 
@@ -53,8 +43,7 @@ str_unify_spacing(c(
   "This    @test_at that\n #test_hash <test-no-tag>", 
   "<TEST_TAG> test!?!? An URL www.example.com/test ."
 ))
-#> [1] "This @test_at that #test_hash < test - no - tag >"    
-#> [2] "<TEST_TAG> test ! ? ! ? An URL www.example.com/test ."
+#>  chr [1:2] "This @test_at that #test_hash < test - no - tag >" ...
 
 
 str_blur_numbers(c(

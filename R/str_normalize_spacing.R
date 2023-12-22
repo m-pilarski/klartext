@@ -35,10 +35,10 @@ str_unify_spacing <- function(.str, .tok_lock_regex=NULL){
     tibble::as_tibble_col("tok") |>
     tibble::rowid_to_column("doc_id") |>
     # tidyr::unnest_longer(tok) |>  this is extremely slow ... temp fix...
-    (\(.tbl){
+    (\(..tbl){
       tibble::tibble(
-        doc_id = rep(.tbl$doc_id, times=lengths(.tbl$tok)),
-        tok = unlist(.tbl$tok)
+        doc_id = rep(..tbl$doc_id, times=lengths(..tbl$tok)),
+        tok = unlist(..tbl$tok)
       )
     })() |> 
     dplyr::mutate(tok = dplyr::if_else(
@@ -47,10 +47,10 @@ str_unify_spacing <- function(.str, .tok_lock_regex=NULL){
       false=stringi::stri_split_boundaries(tok, type="word")
     )) |>
     # tidyr::unnest_longer(tok) |>
-    (\(.tbl){
+    (\(..tbl){
       tibble::tibble(
-        doc_id = rep(.tbl$doc_id, times=lengths(.tbl$tok)),
-        tok = unlist(.tbl$tok)
+        doc_id = rep(..tbl$doc_id, times=lengths(..tbl$tok)),
+        tok = unlist(..tbl$tok)
       )
     })() |> 
     dplyr::group_by(doc_id) |>
@@ -59,7 +59,7 @@ str_unify_spacing <- function(.str, .tok_lock_regex=NULL){
     ) |>
     tidyr::complete(doc_id = seq_along(.str), fill=list(str="")) |>
     dplyr::pull(str) |>
-    rlang::set_names(names(.str)) |> str()
+    rlang::set_names(names(.str))
 
 }
 

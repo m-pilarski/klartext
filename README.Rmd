@@ -28,8 +28,8 @@ klartext is a collection of tools to clean and normalize text.
 
 ```{r, eval=FALSE}
 
-# install.packages("devtools")
-devtools::install_github("m-pilarski/klartext")
+# install.packages("remotes")
+remotes::install_github("m-pilarski/klartext")
 
 ```
 
@@ -37,8 +37,8 @@ devtools::install_github("m-pilarski/klartext")
 
 ```{r, echo=FALSE, message=FALSE}
 
-reticulate::use_condaenv("r-reticulate")
-klartext:::check_num2words(.do_install=TRUE)
+# reticulate::use_condaenv("r-reticulate")
+# klartext:::check_num2words(.do_install=TRUE)
 
 ```
 
