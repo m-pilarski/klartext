@@ -65,7 +65,7 @@ make_pattern_reg_cardinal <- function(.lang="en", .space="[ -]*"){
     ")*s?"
   )
 
-  return(str_c("(?<=(^| ))", .c_full_reg, "(?=( |[[:punct:]]|$))"))
+  return(str_c("(?<=(^| ))(?:", .c_full_reg, ")(?=( |[[:punct:]]|$))"))
 
 }
 
@@ -86,8 +86,8 @@ make_pattern_reg_ordinal <- function(.lang="en", .space="[ -]*"){
 
   .ordi_20_99 <-
     tidyr::expand_grid(
-     start=.ordi_20_90_pre,
-     end=c("ieth", str_c("y", .space, .ordi_base))
+      start=.ordi_20_90_pre,
+      end=c("ieth", str_c("y", .space, .ordi_base))
     ) |>
     dplyr::transmute(str_c(start, end)) |>
     dplyr::pull()
@@ -103,6 +103,6 @@ make_pattern_reg_ordinal <- function(.lang="en", .space="[ -]*"){
     "(?:[0-9]*(?:1st|2nd|3rd|[0456789]th))"
   )
 
-  return(str_c("(?<=(^| ))", .reg_ordi, "(?=( |[[:punct:]]|$))"))
+  return(str_c("(?<=(^| ))(?:", .reg_ordi, ")(?=( |[[:punct:]]|$))"))
 
 }
