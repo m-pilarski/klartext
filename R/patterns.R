@@ -61,8 +61,8 @@ make_pattern_reg_cardinal <- function(.lang="en", .space="[ -]*"){
   .c_rest_reg <- str_c("(?:", .c_start_reg, "|", .c_big_s_reg, ")")
 
   .c_full_reg <- str_c(
-    "(?:", .c_start_reg, "|-? ?(?:[0-9][0-9 .,]*)?[0-9])(?:", .c_rest_reg,
-    ")*s?"
+    "(?:", .c_start_reg, "|-? ?(?:[0-9][0-9 .,]*)?[0-9])(?:", .space,
+    .c_rest_reg, ")*s?"
   )
 
   return(str_c("(?<=(^| ))(?:", .c_full_reg, ")(?=( |[[:punct:]]|$))"))
