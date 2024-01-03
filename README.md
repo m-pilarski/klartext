@@ -43,7 +43,8 @@ str_unify_spacing(c(
   "This    @test_at that\n #test_hash <test-no-tag>", 
   "<TEST_TAG> test!?!? An URL www.example.com/test ."
 ))
-#>  chr [1:2] "This @test_at that #test_hash < test - no - tag >" ...
+#> [1] "This @test_at that #test_hash < test - no - tag >"    
+#> [2] "<TEST_TAG> test ! ? ! ? An URL www.example.com/test ."
 
 
 str_blur_numbers(c(
