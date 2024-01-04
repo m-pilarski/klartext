@@ -4,9 +4,11 @@
 # klartext
 
 [![R](https://github.com/m-pilarski/klartext/actions/workflows/r.yml/badge.svg)](https://github.com/m-pilarski/klartext/actions/workflows/r.yml)
+[![Github All
+Releases](https://img.shields.io/github/downloads/m-pilarski/klartext/total.svg)](https://github.com/m-pilarski/klartext/)
 
-This package is under active development. Things might change without
-backwards compatibility.
+> This package is under active development. Things might change without
+> backwards compatibility.
 
 ## Overview
 
