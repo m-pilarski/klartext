@@ -37,8 +37,8 @@ str_unify_spacing <- function(.str, .tok_lock_regex=NULL){
     # tidyr::unnest_longer(tok) |>  this is extremely slow ... temp fix...
     (\(..tbl){
       tibble::tibble(
-        doc_id = rep(..tbl$doc_id, times=lengths(..tbl$tok)),
-        tok = unlist(..tbl$tok)
+        doc_id = rep(..tbl$doc_id, times=lengths(..tbl$tok)) %||% integer(),
+        tok = unlist(..tbl$tok) %||% character()
       )
     })() |> 
     dplyr::mutate(tok = dplyr::if_else(
@@ -49,8 +49,8 @@ str_unify_spacing <- function(.str, .tok_lock_regex=NULL){
     # tidyr::unnest_longer(tok) |>
     (\(..tbl){
       tibble::tibble(
-        doc_id = rep(..tbl$doc_id, times=lengths(..tbl$tok)),
-        tok = unlist(..tbl$tok)
+        doc_id = rep(..tbl$doc_id, times=lengths(..tbl$tok)) %||% integer(),
+        tok = unlist(..tbl$tok) %||% character()
       )
     })() |> 
     dplyr::group_by(doc_id) |>
