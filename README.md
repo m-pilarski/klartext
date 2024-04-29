@@ -4,9 +4,11 @@
 # klartext
 
 [![R](https://github.com/m-pilarski/klartext/actions/workflows/r.yml/badge.svg)](https://github.com/m-pilarski/klartext/actions/workflows/r.yml)
+[![Github All
+Releases](https://img.shields.io/github/downloads/m-pilarski/klartext/total.svg)](https://github.com/m-pilarski/klartext/)
 
-This package is under active development. Things might change without
-backwards compatibility.
+> This package is under active development. Things might change without
+> backwards compatibility.
 
 ## Overview
 
@@ -43,7 +45,8 @@ str_unify_spacing(c(
   "This    @test_at that\n #test_hash <test-no-tag>", 
   "<TEST_TAG> test!?!? An URL www.example.com/test ."
 ))
-#>  chr [1:2] "This @test_at that #test_hash < test - no - tag >" ...
+#> [1] "This @test_at that #test_hash < test - no - tag >"    
+#> [2] "<TEST_TAG> test ! ? ! ? An URL www.example.com/test ."
 
 
 str_blur_numbers(c(
