@@ -1,10 +1,6 @@
-
-
-
 #' @importFrom stringi %s+%
 #' @export
 stringi::`%s+%`
-
 
 #' @importFrom stringr str_c
 #' @export

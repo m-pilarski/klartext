@@ -1,22 +1,21 @@
 #' @noRd
-pattern_reg_url <-
-  "\\b((http|ftp)s?://|mailto:|www\\.)" %s+%
+pattern_reg_url <- str_c(
+  "\\b((http|ftp)s?://|mailto:|www\\.)",
   "[^[:space:]/$.?#][[:alnum:]-._~:/?#\\[\\]@!$&'()*+%,;=]+[^\\.]\\b"
+)
+
+#' @noRd
+pattern_reg_screen_name <- "(?<![[:alnum:]&])@[[:alnum:]_]+(?=[^[:alnum:]_]|$)"
 
 
 #' @noRd
-pattern_reg_screen_name <-
-  "(?<![[:alnum:]&])@[[:alnum:]_]+(?=[^[:alnum:]_]|$)"
-
-
-#' @noRd
-pattern_reg_hashtag <-
+pattern_reg_hashtag <- (
   "(?<![[:alnum:]&])#[[:alpha:]][[:alnum:]_]*(?=[^[:alnum:]_]|$)"
+)
 
 
 #' @noRd
-pattern_reg_klartag <-
-  "\\<([A-Z0-9_]+?)\\>"
+pattern_reg_klartag <- "\\<([A-Z0-9_]+?)\\>"
 
 
 #' @noRd
@@ -50,7 +49,7 @@ make_pattern_reg_cardinal <- function(.lang="en", .space="[ -]*"){
 
   .c_big_l_reg <- "(?:hundred|thousand|(?:m|b|tr)illion)"
 
-  .c_big_s_reg <- str_c(
+  .c_big_s_reg <- (
     "(?:(?:k|thsnd|m(?:ill?|ln)?|b(?:ill?|l?n)?|t(?:r(?:ill?|l?n))?)\\.?)"
   )
 
